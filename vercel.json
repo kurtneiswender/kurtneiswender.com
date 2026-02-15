@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/tools/hvac-calculator/:path*", "destination": "https://hvac-calculator-kurt.vercel.app/:path*" },
+    { "source": "/tools/echotrace/:path*", "destination": "https://acoustics-visualizer-kurt.vercel.app/:path*" },
+    { "source": "/tools/timber-designer/:path*", "destination": "https://mass-timber-designer-kurt.vercel.app/:path*" }
+  ]
+}

@@ -1,0 +1,73 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import MaturityBadge from '../components/MaturityBadge.astro';
+import SeriesNav from '../components/SeriesNav.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  maturity: 'seed' | 'sprout' | 'evergreen';
+  tags: string[];
+  created: Date;
+  updated: Date;
+  series?: string;
+  seriesOrder?: number;
+}
+
+const { title, description, maturity, tags, created, updated, series, seriesOrder } = Astro.props;
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <!-- Header -->
+    <header class="mb-12 animate-fade-up">
+      <div class="flex items-center gap-3 mb-6">
+        <MaturityBadge maturity={maturity} />
+        <span class="section-label">{formatDate(updated)}</span>
+      </div>
+
+      <h1 class="mb-4">{title}</h1>
+
+      <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">
+        {description}
+      </p>
+
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-6">
+          {tags.map((tag) => (
+            <span class="text-xs font-mono tracking-wide text-text-secondary bg-surface px-2.5 py-1 rounded">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <hr class="rule mt-8" />
+    </header>
+
+    <!-- Content -->
+    <div class="prose animate-fade-up" style="animation-delay: 0.1s;">
+      <slot />
+    </div>
+
+    <!-- Series Navigation -->
+    {series && (
+      <div class="mt-16">
+        <hr class="rule mb-8" />
+        <SeriesNav series={series} currentOrder={seriesOrder} />
+      </div>
+    )}
+
+    <!-- Footer meta -->
+    <footer class="mt-16">
+      <hr class="rule mb-6" />
+      <div class="flex items-center justify-between text-xs text-text-secondary">
+        <span>First planted {formatDate(created)}</span>
+        <a href="/garden" class="hover:text-text transition-colors">&larr; Back to garden</a>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>

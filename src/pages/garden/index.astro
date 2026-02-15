@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GardenCard from '../../components/GardenCard.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('garden');
+const sorted = articles.sort((a, b) => b.data.updated.getTime() - a.data.updated.getTime());
+
+const maturityGroups = {
+  all: sorted,
+  evergreen: sorted.filter((a) => a.data.maturity === 'evergreen'),
+  sprout: sorted.filter((a) => a.data.maturity === 'sprout'),
+  seed: sorted.filter((a) => a.data.maturity === 'seed'),
+};
+
+const counts = {
+  all: maturityGroups.all.length,
+  evergreen: maturityGroups.evergreen.length,
+  sprout: maturityGroups.sprout.length,
+  seed: maturityGroups.seed.length,
+};
+---
+
+<BaseLayout title="Garden" description="A digital garden of ideas about architecture, practice, and education. Articles grow from seeds to evergreen.">
+  <section class="mx-auto max-w-6xl px-6 py-16 md:py-24">
+    <header class="max-w-2xl mb-14 animate-fade-up">
+      <p class="section-label mb-4">Digital Garden</p>
+      <h1 class="mb-4">Garden</h1>
+      <p class="text-lg text-text-secondary leading-relaxed">
+        Ideas grow here. Articles start as seeds&mdash;rough notes and early
+        thoughts&mdash;and develop into evergreen references over time.
+      </p>
+    </header>
+
+    <!-- Maturity filter (client-side) -->
+    <div class="flex flex-wrap gap-2 mb-10 animate-fade-up" style="animation-delay: 0.1s;" id="filter-bar">
+      {(['all', 'evergreen', 'sprout', 'seed'] as const).map((key) => (
+        <button
+          data-filter={key}
+          class:list={[
+            'filter-btn px-3 py-1.5 text-sm rounded-full border transition-all duration-200',
+            key === 'all'
+              ? 'border-text bg-text text-bg'
+              : 'border-rule text-text-secondary hover:border-text-secondary',
+          ]}
+        >
+          {key.charAt(0).toUpperCase() + key.slice(1)}
+          <span class="ml-1 font-mono text-xs opacity-60">{counts[key]}</span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Article grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-up" style="animation-delay: 0.15s;" id="garden-grid">
+      {sorted.map((article) => (
+        <div data-maturity={article.data.maturity}>
+          <GardenCard
+            title={article.data.title}
+            description={article.data.description}
+            maturity={article.data.maturity}
+            slug={article.id}
+            updated={article.data.updated}
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('#garden-grid > div');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      buttons.forEach((b) => {
+        b.classList.remove('border-text', 'bg-text', 'text-bg');
+        b.classList.add('border-rule', 'text-text-secondary');
+      });
+      btn.classList.remove('border-rule', 'text-text-secondary');
+      btn.classList.add('border-text', 'bg-text', 'text-bg');
+
+      cards.forEach((card) => {
+        if (filter === 'all' || card.dataset.maturity === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

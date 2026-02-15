@@ -1,0 +1,92 @@
+---
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: '/garden', label: 'Garden' },
+  { href: '/teaching', label: 'Teaching' },
+  { href: '/tools', label: 'Tools' },
+  { href: '/media', label: 'Media' },
+  { href: '/about', label: 'About' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<nav class="sticky top-0 z-50 bg-bg/95 backdrop-blur-sm">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="flex items-center justify-between h-16">
+      <a href="/" class="font-heading text-lg tracking-tight text-text hover:text-accent transition-colors">
+        Kurt Neiswender
+      </a>
+
+      <!-- Desktop nav -->
+      <ul class="hidden md:flex items-center gap-8">
+        {links.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                'text-sm tracking-wide transition-colors relative py-1',
+                isActive(href)
+                  ? 'text-text font-medium after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-accent'
+                  : 'text-text-secondary hover:text-text',
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 -mr-2 text-text-secondary hover:text-text transition-colors"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="3" y1="6" x2="17" y2="6" />
+          <line x1="3" y1="10" x2="17" y2="10" />
+          <line x1="3" y1="14" x2="17" y2="14" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-rule">
+    <div class="mx-auto max-w-6xl px-6 py-4">
+      <ul class="flex flex-col gap-3">
+        {links.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                'block text-sm tracking-wide py-1 transition-colors',
+                isActive(href) ? 'text-text font-medium' : 'text-text-secondary hover:text-text',
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <hr class="rule" />
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu?.classList.toggle('hidden');
+  });
+</script>

@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolCard from '../../components/ToolCard.astro';
+
+const tools = [
+  {
+    title: 'HVAC Calculator',
+    description: 'Comprehensive energy modeling and HVAC load calculations. Supports multiple building types with space-by-space analysis, EUI reduction strategies, and exportable reports.',
+    href: '/tools/hvac-calculator',
+    status: 'live' as const,
+    icon: '\u{1F321}\u{FE0F}',
+  },
+  {
+    title: 'EchoTrace',
+    description: 'Acoustic simulation and visualization for room design. Model reverberation time, speech intelligibility, and sound distribution in real-time.',
+    href: '/tools/echotrace',
+    status: 'live' as const,
+    icon: '\u{1F50A}',
+  },
+  {
+    title: 'Timber Designer',
+    description: 'Parametric mass timber building designer with real-time 3D visualization. Configure structural bays, floor counts, and CLT/glulam assemblies.',
+    href: '/tools/timber-designer',
+    status: 'beta' as const,
+    icon: '\u{1FAB5}',
+  },
+];
+---
+
+<BaseLayout title="Tools" description="Interactive web tools for architects — HVAC calculations, acoustic simulation, and mass timber design.">
+  <section class="mx-auto max-w-6xl px-6 py-16 md:py-24">
+    <header class="max-w-2xl mb-14 animate-fade-up">
+      <p class="section-label mb-4">Practice</p>
+      <h1 class="mb-4">Tools</h1>
+      <p class="text-lg text-text-secondary leading-relaxed">
+        Interactive instruments for architectural practice. Each tool is a
+        standalone web application&mdash;free to use, built to learn.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-up" style="animation-delay: 0.1s;">
+      {tools.map((tool) => (
+        <ToolCard {...tool} />
+      ))}
+    </div>
+
+    <div class="mt-16 p-6 rounded-lg bg-surface/50 border border-rule animate-fade-up" style="animation-delay: 0.2s;">
+      <p class="section-label mb-3">About these tools</p>
+      <p class="text-sm text-text-secondary leading-relaxed max-w-2xl">
+        These tools are built with React, TypeScript, and Three.js. They run
+        entirely in your browser. Each started as a teaching exercise or
+        professional need and evolved into something others might find useful.
+        Source code is available on <a href="https://github.com/kurtneiswender" class="text-accent hover:underline" target="_blank" rel="noopener">GitHub</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

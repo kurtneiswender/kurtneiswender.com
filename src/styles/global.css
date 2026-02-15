@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+/* ── Design Tokens ──────────────────────────────────────── */
+
+@theme {
+  --color-bg: #FAFAF8;
+  --color-surface: #F5F4F0;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #6B6B6B;
+  --color-accent: #2D5A27;
+  --color-timber: #D4A574;
+  --color-seed: #A8B88A;
+  --color-sprout: #6B9B5E;
+  --color-evergreen: #2D5A27;
+  --color-rule: #E0DED8;
+
+  --font-heading: 'DM Serif Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+
+html {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Typography ──────────────────────────────────────────── */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+h1 { font-size: clamp(2.25rem, 4vw + 1rem, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2.25rem); }
+h3 { font-size: clamp(1.25rem, 1.5vw + 0.5rem, 1.5rem); }
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+/* ── Prose (garden articles) ─────────────────────────────── */
+
+.prose {
+  max-width: 65ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-text);
+}
+
+.prose p {
+  margin-block: 1.25em;
+}
+
+.prose h2 {
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.prose h3 {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+.prose a {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-timber);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--color-accent);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--color-timber);
+  padding-left: 1.25em;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-block: 1.5em;
+}
+
+.prose ul, .prose ol {
+  padding-left: 1.5em;
+  margin-block: 1.25em;
+}
+
+.prose li {
+  margin-block: 0.375em;
+}
+
+.prose li::marker {
+  color: var(--color-text-secondary);
+}
+
+.prose code:not(pre code) {
+  background: var(--color-surface);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.875em;
+}
+
+.prose pre {
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: 1.25em 1.5em;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-block: 1.5em;
+  font-size: 0.875em;
+  line-height: 1.6;
+}
+
+.prose img {
+  border-radius: 4px;
+  margin-block: 2em;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin-block: 3em;
+}
+
+/* ── Architectural rule lines ────────────────────────────── */
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+}
+
+.rule-thick {
+  border: none;
+  border-top: 2px solid var(--color-text);
+}
+
+/* ── Section label (like architectural annotations) ──────── */
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* ── Animations ──────────────────────────────────────────── */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out both;
+}

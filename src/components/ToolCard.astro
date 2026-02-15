@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  status: 'live' | 'beta' | 'coming-soon';
+  icon?: string;
+}
+
+const { title, description, href, status, icon } = Astro.props;
+
+const statusConfig = {
+  live: { label: 'Live', class: 'bg-accent/10 text-accent' },
+  beta: { label: 'Beta', class: 'bg-timber/20 text-timber' },
+  'coming-soon': { label: 'Soon', class: 'bg-surface text-text-secondary' },
+} as const;
+
+const { label, class: statusClass } = statusConfig[status];
+---
+
+<a
+  href={href}
+  class="group block p-6 rounded-lg border border-rule hover:border-timber/50 bg-surface/30 hover:bg-surface transition-all duration-200"
+>
+  <div class="flex items-start justify-between mb-4">
+    {icon && <span class="text-2xl" aria-hidden="true">{icon}</span>}
+    <span class:list={['text-xs font-medium px-2 py-0.5 rounded-full', statusClass]}>
+      {label}
+    </span>
+  </div>
+
+  <h3 class="font-heading text-xl mb-2 group-hover:text-accent transition-colors">
+    {title}
+  </h3>
+
+  <p class="text-sm text-text-secondary leading-relaxed">
+    {description}
+  </p>
+
+  <div class="mt-4 text-xs font-mono text-text-secondary group-hover:text-accent transition-colors">
+    Open tool &rarr;
+  </div>
+</a>

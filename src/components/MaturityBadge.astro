@@ -1,0 +1,20 @@
+---
+interface Props {
+  maturity: 'seed' | 'sprout' | 'evergreen';
+}
+
+const { maturity } = Astro.props;
+
+const config = {
+  seed: { label: 'Seed', color: 'bg-seed/15 text-seed', icon: '\u{1F331}' },
+  sprout: { label: 'Sprout', color: 'bg-sprout/15 text-sprout', icon: '\u{1F33F}' },
+  evergreen: { label: 'Evergreen', color: 'bg-evergreen/15 text-evergreen', icon: '\u{1F332}' },
+} as const;
+
+const { label, color, icon } = config[maturity];
+---
+
+<span class:list={['inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium tracking-wide', color]}>
+  <span aria-hidden="true">{icon}</span>
+  {label}
+</span>

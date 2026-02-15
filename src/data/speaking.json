@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Launch, Build, and Thrive: Starting Your Own Firm",
+    "event": "AIA25 National Conference",
+    "date": "2025",
+    "location": "AIA National Conference",
+    "description": "Panelist on starting and operating an architecture firm, sharing insights from founding Urban Colab Architecture."
+  },
+  {
+    "title": "AIA Trust: Starting and Operating Your Own Firm",
+    "event": "AIA25 National Conference",
+    "date": "2025",
+    "location": "AIA National Conference",
+    "description": "Panelist on the business and risk management dimensions of firm ownership."
+  },
+  {
+    "title": "In Conversation with Evelyn Lee, FAIA",
+    "event": "Design x Technology, Lawrence Technological University",
+    "date": "2025",
+    "location": "Lawrence Technological University",
+    "description": "Interviewed Evelyn Lee, FAIA on the intersection of design and technology in architectural practice."
+  },
+  {
+    "title": "New Housing Opportunities in Flint",
+    "event": "Building Michigan Communities Conference",
+    "date": "2025",
+    "location": "Michigan",
+    "description": "Presentation on emerging housing models and community-driven development in Flint."
+  },
+  {
+    "title": "AI Assisted Design Practice",
+    "event": "Archifusion, AIA Michigan Regional Conference",
+    "date": "2024",
+    "location": "AIA Michigan",
+    "description": "Talk on integrating AI tools into architectural design workflows and practice."
+  },
+  {
+    "title": "GEN AI: Using Vitras AI for Energy Modeling",
+    "event": "Lawrence Technological University Symposium",
+    "date": "2024",
+    "location": "Lawrence Technological University",
+    "description": "Presentation on leveraging generative AI for building energy analysis and modeling."
+  },
+  {
+    "title": "AI-Enabled Toolmaking for Architects",
+    "event": "EDRA57",
+    "date": "2026",
+    "location": "Conference Workshop",
+    "description": "Hands-on workshop exploring how architects can leverage generative AI to build discipline-specific computational tools."
+  },
+  {
+    "title": "Timber in the City: Comprehensive Design Studio",
+    "event": "ACSA",
+    "date": "2025",
+    "location": "Association of Collegiate Schools of Architecture",
+    "description": "Presentation on integrating mass timber construction and Passive House principles into capstone design studio pedagogy."
+  },
+  {
+    "title": "The Art of Execution",
+    "event": "Texas Society of Architects Annual Convention",
+    "date": "2019",
+    "location": "Texas",
+    "description": "Pecha Kucha presentation on translating design vision into built reality."
+  },
+  {
+    "title": "Design Challenges for Net Zero Building Principles",
+    "event": "Net Zero Build Summit",
+    "date": "2020",
+    "location": "Novi, Michigan",
+    "description": "Panelist on design challenges for residential and multi-family buildings embracing net-zero principles."
+  }
+]

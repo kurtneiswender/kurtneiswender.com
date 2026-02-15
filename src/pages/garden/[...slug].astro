@@ -1,0 +1,28 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('garden');
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+---
+
+<ArticleLayout
+  title={article.data.title}
+  description={article.data.description}
+  maturity={article.data.maturity}
+  tags={article.data.tags}
+  created={article.data.created}
+  updated={article.data.updated}
+  series={article.data.series}
+  seriesOrder={article.data.seriesOrder}
+>
+  <Content />
+</ArticleLayout>

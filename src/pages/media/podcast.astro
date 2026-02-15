@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PodcastEpisode from '../../components/PodcastEpisode.astro';
+import episodes from '../../data/podcast-episodes.json';
+---
+
+<BaseLayout title="Coffee Sketch Podcast" description="Coffee Sketch Podcast — conversations about architecture, practice, and the spaces between. 190+ episodes, listeners in 80+ countries.">
+  <section class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <header class="mb-14 animate-fade-up">
+      <p class="section-label mb-4">Media &middot; Podcast</p>
+      <h1 class="mb-4">Coffee Sketch Podcast</h1>
+      <p class="text-lg text-text-secondary leading-relaxed">
+        Conversations over coffee and sketching about architecture, practice,
+        and the spaces between. Co-hosted with Jamie Crawley, AIA since 2018.
+        190+ episodes, listeners in 80+ countries.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-6">
+        <a href="https://www.coffeesketchpodcast.com" target="_blank" rel="noopener"
+          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all">
+          Website &rarr;
+        </a>
+        <a href="https://www.youtube.com/@coffeesketchpodcast" target="_blank" rel="noopener"
+          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all">
+          YouTube &rarr;
+        </a>
+        <a href="https://www.instagram.com/coffeesketch_podcast" target="_blank" rel="noopener"
+          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all">
+          Instagram &rarr;
+        </a>
+        <a href="https://www.buymeacoffee.com/coffeesketch" target="_blank" rel="noopener"
+          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all">
+          Support the Show &rarr;
+        </a>
+      </div>
+    </header>
+
+    <div class="animate-fade-up" style="animation-delay: 0.1s;">
+      {episodes.map((ep: { title: string; number: number; description: string; date: string; url?: string }) => (
+        <PodcastEpisode {...ep} />
+      ))}
+    </div>
+
+    <footer class="mt-12">
+      <hr class="rule mb-6" />
+      <a href="/media" class="text-sm text-text-secondary hover:text-accent transition-colors">
+        &larr; Back to media
+      </a>
+    </footer>
+  </section>
+</BaseLayout>

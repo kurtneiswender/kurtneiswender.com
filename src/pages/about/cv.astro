@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import cv from '../../data/cv.json';
+---
+
+<BaseLayout title="CV" description="Curriculum Vitae — Kurt Neiswender, AIA, LEED. Architect, educator, and toolmaker.">
+  <section class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <header class="mb-14 animate-fade-up">
+      <p class="section-label mb-4">Curriculum Vitae</p>
+      <h1 class="mb-4">Kurt Neiswender, AIA, LEED</h1>
+      <p class="text-lg text-text-secondary">
+        Principal Architect, <a href="https://www.urbancolab.design" target="_blank" rel="noopener" class="text-accent hover:underline">Urban Colab Architecture, L3C</a>
+        &middot; Assistant Professor of Practice, <a href="https://ltu.edu/faculty/neiswender-aia-kurt/" target="_blank" rel="noopener" class="text-accent hover:underline">Lawrence Technological University</a>
+      </p>
+      <div class="flex gap-4 mt-4">
+        <a href="/about/Curriculum Vitae Practice.pdf" target="_blank" rel="noopener" class="text-sm text-accent hover:underline">
+          Download CV (PDF) &darr;
+        </a>
+        <a href="/about/Significant Work.pdf" target="_blank" rel="noopener" class="text-sm text-accent hover:underline">
+          Significant Work (PDF) &darr;
+        </a>
+      </div>
+      <p class="text-sm text-text-secondary mt-3">
+        Contact: <a href="mailto:info@urbancolab.design" class="hover:text-accent transition-colors">info@urbancolab.design</a>
+      </p>
+    </header>
+
+    {cv.sections.map((section: { title: string; items: { title: string; subtitle?: string; date?: string; description?: string }[] }, i: number) => (
+      <div class="mb-12 animate-fade-up" style={`animation-delay: ${0.05 * (i + 1)}s;`}>
+        <h2 class="font-heading text-xl mb-6 pb-3 border-b-2 border-text">{section.title}</h2>
+        <div class="space-y-5">
+          {section.items.map((item) => (
+            <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-1">
+              <div>
+                <p class="font-medium">{item.title}</p>
+                {item.subtitle && (
+                  <p class="text-sm text-text-secondary">{item.subtitle}</p>
+                )}
+                {item.description && (
+                  <p class="text-sm text-text-secondary mt-1">{item.description}</p>
+                )}
+              </div>
+              {item.date && (
+                <p class="text-sm font-mono text-text-secondary">{item.date}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+</BaseLayout>

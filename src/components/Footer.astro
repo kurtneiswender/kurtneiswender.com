@@ -1,0 +1,59 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-auto">
+  <hr class="rule" />
+  <div class="mx-auto max-w-6xl px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+      <!-- Identity -->
+      <div class="md:col-span-2">
+        <p class="font-heading text-lg mb-2">Kurt Neiswender, AIA, LEED</p>
+        <p class="text-sm text-text-secondary leading-relaxed max-w-sm">
+          Architect, educator, toolmaker. Principal at
+          <a href="https://www.urbancolab.design" target="_blank" rel="noopener" class="hover:text-accent transition-colors">Urban Colab Architecture</a>
+          and Assistant Professor of Practice at Lawrence Technological University.
+        </p>
+        <p class="text-sm text-text-secondary mt-3">
+          <a href="mailto:info@urbancolab.design" class="hover:text-accent transition-colors">info@urbancolab.design</a>
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <p class="section-label mb-3">Navigate</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/garden" class="text-text-secondary hover:text-text transition-colors">Garden</a></li>
+          <li><a href="/teaching" class="text-text-secondary hover:text-text transition-colors">Teaching</a></li>
+          <li><a href="/tools" class="text-text-secondary hover:text-text transition-colors">Tools</a></li>
+          <li><a href="/media" class="text-text-secondary hover:text-text transition-colors">Media</a></li>
+          <li><a href="/about" class="text-text-secondary hover:text-text transition-colors">About</a></li>
+          <li><a href="/about/cv" class="text-text-secondary hover:text-text transition-colors">CV</a></li>
+        </ul>
+      </div>
+
+      <!-- Elsewhere -->
+      <div>
+        <p class="section-label mb-3">Elsewhere</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://www.urbancolab.design" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">Urban Colab Architecture</a></li>
+          <li><a href="https://www.coffeesketchpodcast.com" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">Coffee Sketch Podcast</a></li>
+          <li><a href="https://www.youtube.com/@coffeesketchpodcast" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://www.instagram.com/kurtneiswender" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.instagram.com/urbancolab.design" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">Instagram (Practice)</a></li>
+          <li><a href="https://www.instagram.com/coffeesketch_podcast" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">Instagram (Podcast)</a></li>
+          <li><a href="https://x.com/kurtneiswender" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://github.com/kurtneiswender" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://ltu.edu/faculty/neiswender-aia-kurt/" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">LTU Faculty Page</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="rule my-8" />
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-text-secondary">
+      <p>&copy; {year} Kurt Neiswender, AIA</p>
+      <p class="section-label">Built with Astro</p>
+    </div>
+  </div>
+</footer>

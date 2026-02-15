@@ -1,0 +1,221 @@
+{
+  "sections": [
+    {
+      "title": "Education",
+      "items": [
+        {
+          "title": "Master of Urban Design with Distinction",
+          "subtitle": "Lawrence Technological University, College of Architecture and Design",
+          "date": "2010 - 2014"
+        },
+        {
+          "title": "Post-Professional, NY/Paris Program",
+          "subtitle": "Columbia University, Graduate School of Architecture, Planning, and Preservation",
+          "date": "2003"
+        },
+        {
+          "title": "Bachelor of Architecture",
+          "subtitle": "University of Southern California, School of Architecture",
+          "date": "1998 - 2003"
+        }
+      ]
+    },
+    {
+      "title": "Professional Registrations",
+      "items": [
+        {
+          "title": "Registered Architect, State of Michigan",
+          "subtitle": "#1301056647",
+          "date": "2009 - Present"
+        },
+        {
+          "title": "LEED Accredited Professional",
+          "subtitle": "United States Green Building Council, Legacy LEED AP",
+          "date": "2008 - Present"
+        }
+      ]
+    },
+    {
+      "title": "Professional Experience",
+      "items": [
+        {
+          "title": "Urban Colab Architecture, L.3.C., Flint, Michigan",
+          "subtitle": "Owner, Principal Architect",
+          "date": "2020 - Present",
+          "description": "Leads community-driven projects in sustainable housing and adaptive reuse, including Gray Street Apartments, Orchard Grove and Manor, and the Avalon Village Community Kitchen."
+        },
+        {
+          "title": "The Coffee Sketch Podcast",
+          "subtitle": "Co-Founder, Co-Host",
+          "date": "2018 - Present",
+          "description": "Co-created a global design podcast with 190+ episodes and listeners in 80+ countries, featuring conversations on architecture, creativity, and technology."
+        },
+        {
+          "title": "Sedgewick + Ferweda Architects, Flint, Michigan",
+          "subtitle": "Project Architect",
+          "date": "2012 - 2020",
+          "description": "Managed design and documentation for projects including The Grand Apartments, Crossover Ministries, and Phoenix Haus, the first PHIUS Certified Passive House in Michigan."
+        },
+        {
+          "title": "MainStreet Design Build, Birmingham, Michigan",
+          "subtitle": "Director of Architecture",
+          "date": "2010 - 2012"
+        },
+        {
+          "title": "OJMR Architects, Los Angeles, California",
+          "subtitle": "Project Architect",
+          "date": "2007 - 2010"
+        },
+        {
+          "title": "Gruen Associates, Los Angeles, California",
+          "subtitle": "Project Designer",
+          "date": "2005 - 2007"
+        },
+        {
+          "title": "Togawa & Smith Architects, Pasadena, California",
+          "subtitle": "Project Designer",
+          "date": "2004 - 2005"
+        },
+        {
+          "title": "James Schettino Architects, New Canaan, Connecticut",
+          "subtitle": "Project Designer",
+          "date": "2003 - 2004"
+        }
+      ]
+    },
+    {
+      "title": "Academic Appointments",
+      "items": [
+        {
+          "title": "Assistant Professor of Practice",
+          "subtitle": "Lawrence Technological University, College of Architecture and Design",
+          "date": "2021 - Present",
+          "description": "Courses: HVAC and Water Systems, Acoustics/Electrical/Illumination, Comprehensive Design Studio, Integrated Design"
+        },
+        {
+          "title": "Adjunct Faculty",
+          "subtitle": "Lawrence Technological University, College of Architecture and Design",
+          "date": "2020 - 2021"
+        },
+        {
+          "title": "Lecturer I",
+          "subtitle": "University of Michigan - Flint, Geography, Planning & Environment Dept.",
+          "date": "2013 - 2019",
+          "description": "Sustainability, urban planning, and renewable energy courses"
+        },
+        {
+          "title": "Lecturer I",
+          "subtitle": "University of Michigan - Flint, Art and Art History Department",
+          "date": "2014 - 2015",
+          "description": "Two Dimensional Design, Community Design Studio"
+        }
+      ]
+    },
+    {
+      "title": "AIA Awards & Recognition",
+      "items": [
+        {
+          "title": "AIA Flint Honor Award",
+          "subtitle": "Sustainable Design Award for Crossover Outreach, Flint",
+          "date": "2025"
+        },
+        {
+          "title": "AIA Flint Honor Award",
+          "subtitle": "Sustainable Design Award for Satori Haus, Manistique",
+          "date": "2018"
+        },
+        {
+          "title": "AIA National Young Architect Award",
+          "subtitle": "Honors exceptional leadership and contributions to the profession early in career",
+          "date": "2017"
+        },
+        {
+          "title": "AIA Michigan Young Architect Award",
+          "subtitle": "Proficiency and exceptional accomplishments in the profession",
+          "date": "2015"
+        },
+        {
+          "title": "Building Design + Construction Magazine",
+          "subtitle": "40 Under 40 — \"Flint Crusader\"",
+          "date": "2018"
+        },
+        {
+          "title": "Flint Economic Alliance",
+          "subtitle": "Art of Achievement Award, Young Professional of the Year",
+          "date": "2018"
+        }
+      ]
+    },
+    {
+      "title": "AIA Leadership",
+      "items": [
+        {
+          "title": "AIA Michigan Secretary",
+          "subtitle": "Executive Committee, Board of Directors — path to 2029 AIA Michigan President",
+          "date": "2026 - 2029"
+        },
+        {
+          "title": "AIA Michigan Director",
+          "subtitle": "Board of Directors, Strategic Plan and Archifusion Planning Committees",
+          "date": "2025 - 2026"
+        },
+        {
+          "title": "AIA Small Firm Exchange",
+          "subtitle": "Board of Directors — national leadership and advocacy for small firm practice",
+          "date": "2019 - 2021"
+        },
+        {
+          "title": "AIA/NCARB Experience Advisory Joint Committee",
+          "subtitle": "Co-Chair — appointed by President Thomas Vonier, FAIA",
+          "date": "2017"
+        },
+        {
+          "title": "AIA National Resolutions Committee",
+          "subtitle": "2016 Chair — appointed by President Helene Dreiling, FAIA",
+          "date": "2014 - 2016"
+        },
+        {
+          "title": "AIA Flint President",
+          "subtitle": "Board of Directors",
+          "date": "2018 - 2019"
+        }
+      ]
+    },
+    {
+      "title": "Mayoral Appointments",
+      "items": [
+        {
+          "title": "City of Flint Building Board of Appeals",
+          "subtitle": "Mayoral Appointment",
+          "date": "2022 - Present"
+        },
+        {
+          "title": "City of Flint Building Historic District Commission",
+          "subtitle": "Vice Chair, Mayoral Appointment",
+          "date": "2018 - Present"
+        }
+      ]
+    },
+    {
+      "title": "Tools & Digital Projects",
+      "items": [
+        {
+          "title": "HVAC Calculator",
+          "description": "Web-based energy modeling and HVAC load calculation tool for architects"
+        },
+        {
+          "title": "EchoTrace",
+          "description": "Acoustic simulation and room acoustics visualization application"
+        },
+        {
+          "title": "Mass Timber Designer",
+          "description": "Parametric mass timber building designer with 3D visualization"
+        },
+        {
+          "title": "Coffee Sketch Podcast",
+          "description": "Global design podcast — 190+ episodes, 80+ countries"
+        }
+      ]
+    }
+  ]
+}

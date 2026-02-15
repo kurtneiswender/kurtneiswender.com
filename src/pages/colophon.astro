@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Colophon" description="How this site was built — technology, design decisions, and acknowledgments.">
+  <section class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <header class="mb-12 animate-fade-up">
+      <p class="section-label mb-4">Colophon</p>
+      <h1 class="mb-4">How This Site Is Built</h1>
+    </header>
+
+    <div class="prose animate-fade-up" style="animation-delay: 0.1s;">
+      <p>
+        This site is built with <strong>Astro</strong>&mdash;a static-first
+        framework that ships zero JavaScript by default. The content is mostly
+        prose, so a framework optimized for static pages made more sense than a
+        full React application.
+      </p>
+
+      <h2>Stack</h2>
+
+      <ul>
+        <li><strong>Framework:</strong> Astro 5.x</li>
+        <li><strong>Styling:</strong> Tailwind CSS 4.x</li>
+        <li><strong>Interactive tools:</strong> React 18 (as separate SPAs via Vercel rewrites)</li>
+        <li><strong>Content:</strong> Astro Content Collections (Markdown)</li>
+        <li><strong>Hosting:</strong> Vercel</li>
+        <li><strong>Domain:</strong> kurtneiswender.com</li>
+      </ul>
+
+      <h2>Typography</h2>
+
+      <ul>
+        <li><strong>Headings:</strong> DM Serif Display &mdash; architectural character with sharp serifs</li>
+        <li><strong>Body:</strong> Inter &mdash; clean readability for long-form prose</li>
+        <li><strong>Code:</strong> JetBrains Mono &mdash; for inline code and labels</li>
+      </ul>
+
+      <h2>Design Principles</h2>
+
+      <p>
+        The design follows the same principles I apply to buildings: restraint,
+        proportion, and material honesty. No gradients, no visual noise, no
+        decoration without purpose. The warm white background references good
+        paper. The green accent evokes sustainable practice. The timber tone
+        connects to the mass timber work in the teaching and tools sections.
+      </p>
+
+      <h2>Tools Integration</h2>
+
+      <p>
+        The three interactive tools (HVAC Calculator, EchoTrace, Timber
+        Designer) are standalone React applications deployed to their own Vercel
+        projects. They're served under <code>/tools/*</code> via Vercel path
+        rewrites, so they appear seamlessly within the site while maintaining
+        independent deployment cycles.
+      </p>
+
+      <h2>Garden</h2>
+
+      <p>
+        The digital garden content migrated from GitBook. Articles use a
+        maturity model&mdash;seed, sprout, evergreen&mdash;to signal how
+        developed each piece of thinking is. This is inspired by the digital
+        garden movement and Maggie Appleton&rsquo;s writing on the pattern.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

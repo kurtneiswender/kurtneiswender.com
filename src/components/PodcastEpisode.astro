@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  number: number;
+  description: string;
+  date: string;
+  url?: string;
+}
+
+const { title, number, description, date, url } = Astro.props;
+---
+
+<div class="group py-5 border-b border-rule last:border-b-0">
+  <div class="flex items-baseline gap-4 mb-2">
+    <span class="font-mono text-xs text-text-secondary shrink-0">
+      EP {String(number).padStart(2, '0')}
+    </span>
+    <span class="section-label">{date}</span>
+  </div>
+
+  <h3 class="font-heading text-lg mb-1.5">
+    {url ? (
+      <a href={url} target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+        {title}
+      </a>
+    ) : (
+      title
+    )}
+  </h3>
+
+  <p class="text-sm text-text-secondary leading-relaxed">
+    {description}
+  </p>
+</div>

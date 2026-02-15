@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  series: string;
+  currentOrder?: number;
+}
+
+const { series, currentOrder } = Astro.props;
+
+const allArticles = await getCollection('garden');
+const seriesArticles = allArticles
+  .filter((a) => a.data.series === series)
+  .sort((a, b) => (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0));
+
+const seriesTitle = series
+  .split('-')
+  .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+  .join(' ');
+---
+
+{seriesArticles.length > 1 && (
+  <div>
+    <p class="section-label mb-4">Series: {seriesTitle}</p>
+    <ol class="space-y-1.5">
+      {seriesArticles.map((article) => {
+        const isCurrent = article.data.seriesOrder === currentOrder;
+        return (
+          <li>
+            <a
+              href={`/garden/${article.id}`}
+              class:list={[
+                'flex items-center gap-3 text-sm py-1.5 px-3 rounded transition-colors',
+                isCurrent
+                  ? 'bg-accent/5 text-accent font-medium'
+                  : 'text-text-secondary hover:text-text hover:bg-surface',
+              ]}
+            >
+              <span class="font-mono text-xs text-text-secondary w-5 shrink-0">
+                {String(article.data.seriesOrder ?? 0).padStart(2, '0')}
+              </span>
+              {article.data.title}
+            </a>
+          </li>
+        );
+      })}
+    </ol>
+  </div>
+)}

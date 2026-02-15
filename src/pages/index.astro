@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GardenCard from '../components/GardenCard.astro';
+import ToolCard from '../components/ToolCard.astro';
+import { getCollection } from 'astro:content';
+
+const gardenArticles = await getCollection('garden');
+const latestArticles = gardenArticles
+  .sort((a, b) => b.data.updated.getTime() - a.data.updated.getTime())
+  .slice(0, 4);
+
+const tools = [
+  {
+    title: 'HVAC Calculator',
+    description: 'Energy modeling and HVAC load calculations for architects and engineers.',
+    href: '/tools/hvac-calculator',
+    status: 'live' as const,
+    icon: '\u{1F321}\u{FE0F}',
+  },
+  {
+    title: 'EchoTrace',
+    description: 'Acoustic simulation and room acoustics visualization tool.',
+    href: '/tools/echotrace',
+    status: 'live' as const,
+    icon: '\u{1F50A}',
+  },
+  {
+    title: 'Timber Designer',
+    description: 'Parametric mass timber building designer with 3D visualization.',
+    href: '/tools/timber-designer',
+    status: 'beta' as const,
+    icon: '\u{1FAB5}',
+  },
+];
+---
+
+<BaseLayout title="Home">
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-6 pt-20 pb-24 md:pt-32 md:pb-32">
+    <div class="max-w-3xl animate-fade-up">
+      <p class="section-label mb-6">Architect &middot; Educator &middot; Toolmaker</p>
+      <h1 class="mb-6">
+        Building instruments for<br class="hidden sm:block" />
+        <span class="text-accent">architectural practice</span>
+      </h1>
+      <p class="text-lg text-text-secondary leading-relaxed max-w-xl">
+        I'm Kurt Neiswender, AIA&mdash;a registered architect, LEED AP, and
+        <a href="https://ltu.edu/faculty/neiswender-aia-kurt/" target="_blank" rel="noopener" class="text-accent hover:underline">educator at Lawrence Tech</a>,
+        learning in public through writing, teaching, and making tools
+        for the profession. I run
+        <a href="https://www.urbancolab.design" target="_blank" rel="noopener" class="text-accent hover:underline">Urban Colab Architecture</a>
+        in Flint, Michigan and co-host the
+        <a href="https://www.coffeesketchpodcast.com" target="_blank" rel="noopener" class="text-accent hover:underline">Coffee Sketch Podcast</a>.
+      </p>
+    </div>
+
+    <!-- Pillar cards -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 animate-fade-up" style="animation-delay: 0.15s;">
+      {[
+        { label: 'Garden', desc: 'Writing & thinking', href: '/garden', count: `${gardenArticles.length} articles` },
+        { label: 'Teaching', desc: 'Studio & workshops', href: '/teaching', count: 'LTU + EDRA' },
+        { label: 'Tools', desc: 'Interactive apps', href: '/tools', count: '3 tools' },
+        { label: 'Media', desc: 'Podcast & talks', href: '/media', count: 'Coffee Sketch' },
+      ].map((pillar) => (
+        <a
+          href={pillar.href}
+          class="group p-5 rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all duration-200"
+        >
+          <p class="font-heading text-lg mb-1 group-hover:text-accent transition-colors">
+            {pillar.label}
+          </p>
+          <p class="text-sm text-text-secondary mb-3">{pillar.desc}</p>
+          <p class="section-label">{pillar.count}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <hr class="rule mx-6" />
+
+  <!-- Featured Tools -->
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <div class="flex items-baseline justify-between mb-10">
+      <div>
+        <p class="section-label mb-3">Practice</p>
+        <h2>Tools for Architects</h2>
+      </div>
+      <a href="/tools" class="hidden sm:block text-sm text-text-secondary hover:text-accent transition-colors">
+        View all &rarr;
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {tools.map((tool) => (
+        <ToolCard {...tool} />
+      ))}
+    </div>
+  </section>
+
+  <hr class="rule mx-6" />
+
+  <!-- Latest from the Garden -->
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <div class="flex items-baseline justify-between mb-10">
+      <div>
+        <p class="section-label mb-3">Learning in Public</p>
+        <h2>From the Garden</h2>
+      </div>
+      <a href="/garden" class="hidden sm:block text-sm text-text-secondary hover:text-accent transition-colors">
+        View all &rarr;
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {latestArticles.map((article) => (
+        <GardenCard
+          title={article.data.title}
+          description={article.data.description}
+          maturity={article.data.maturity}
+          slug={article.id}
+          updated={article.data.updated}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
