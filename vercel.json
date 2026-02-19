@@ -1,7 +1,10 @@
 {
-  "rewrites": [
-    { "source": "/tools/hvac-calculator/:path*", "destination": "https://hvac-calculator-one.vercel.app/:path*" },
-    { "source": "/tools/echotrace/:path*", "destination": "https://acoustics-visualizer.vercel.app/:path*" },
-    { "source": "/tools/timber-designer/:path*", "destination": "https://mass-timber-designer.vercel.app/:path*" }
+  "redirects": [
+    { "source": "/tools/hvac-calculator", "destination": "https://hvac-calculator-one.vercel.app", "permanent": false },
+    { "source": "/tools/hvac-calculator/:path*", "destination": "https://hvac-calculator-one.vercel.app/:path*", "permanent": false },
+    { "source": "/tools/echotrace", "destination": "https://acoustics-visualizer.vercel.app", "permanent": false },
+    { "source": "/tools/echotrace/:path*", "destination": "https://acoustics-visualizer.vercel.app/:path*", "permanent": false },
+    { "source": "/tools/timber-designer", "destination": "https://mass-timber-designer.vercel.app", "permanent": false },
+    { "source": "/tools/timber-designer/:path*", "destination": "https://mass-timber-designer.vercel.app/:path*", "permanent": false }
   ]
 }
