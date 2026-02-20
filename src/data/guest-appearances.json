@@ -4,14 +4,16 @@
     "show": "The EntreArchitect Podcast",
     "episode": "Episode #630",
     "date": "2025",
-    "description": "Discussion on community-driven practice, social impact in architecture, and balancing purpose with profession."
+    "description": "Discussion on community-driven practice, social impact in architecture, and balancing purpose with profession.",
+    "url": "https://entrearchitect.com/podcast/entrearch/rebuilding-the-fabric-of-a-city-with-purpose-and-design/"
   },
   {
     "title": "Ask Me Anything (AMA) with Coffee Sketch Podcast",
     "show": "Practice Disrupted with Evelyn Lee, FAIA",
-    "episode": "Episode 144",
+    "episode": "Episode 141",
     "date": "2024",
-    "description": "AMA covering podcasting, practice, and the intersection of media and architecture."
+    "description": "AMA covering podcasting, practice, and the intersection of media and architecture.",
+    "url": "https://practiceofarchitecture.com/2024/02/16/141-season-8-coffee-sketch-podcast/"
   },
   {
     "title": "Water Treatment",
@@ -32,7 +34,8 @@
     "show": "E3: Energy, Environment, with Emily Podcast",
     "episode": "Season 3, Episode #26",
     "date": "2021",
-    "description": "Exploration of sustainable design, material longevity, and the case against disposable architecture."
+    "description": "Exploration of sustainable design, material longevity, and the case against disposable architecture.",
+    "url": "https://www.mottramarch.com/e3-energy-efficiency-with-emily/kurt"
   },
   {
     "title": "What is a Passive House",
@@ -46,7 +49,8 @@
     "show": "The EntreArchitect Podcast",
     "episode": "Episode #283",
     "date": "2019",
-    "description": "Conversation on analog drawing, creative process, and the Coffee Sketch Podcast story."
+    "description": "Conversation on analog drawing, creative process, and the Coffee Sketch Podcast story.",
+    "url": "https://entrearchitect.com/podcast/entrearch/the-power-of-sketching/"
   },
   {
     "title": "Flint Water Crisis",
@@ -60,13 +64,15 @@
     "show": "The Young Architect Podcast",
     "episode": "Episode #32",
     "date": "2017",
-    "description": "Story of relocating from Los Angeles to Flint and building a community-centered practice from scratch."
+    "description": "Story of relocating from Los Angeles to Flint and building a community-centered practice from scratch.",
+    "url": "https://youngarchitect.com/planting-your-roots-in-a-new-city-with-kurt-neiswender/"
   },
   {
     "title": "Dispatch from Flint",
     "show": "Archinect Sessions Podcast",
     "episode": "Episode #54",
     "date": "2016",
-    "description": "Early-career dispatch covering urban design, public interest architecture, and Flint's design potential."
+    "description": "Early-career dispatch covering urban design, public interest architecture, and Flint's design potential.",
+    "url": "http://archinect.libsyn.com/dispatch-from-flint"
   }
 ]
