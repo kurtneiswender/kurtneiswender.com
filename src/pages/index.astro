@@ -31,6 +31,13 @@ const tools = [
     status: 'beta' as const,
     icon: '\u{1FAB5}',
   },
+  {
+    title: 'Proposal Writer',
+    description: 'AI-assisted lead qualification and proposal generation for architecture firms.',
+    href: '/tools/proposal-writer',
+    status: 'beta' as const,
+    icon: '📋',
+  },
 ];
 ---
 
@@ -59,7 +66,7 @@ const tools = [
       {[
         { label: 'Garden', desc: 'Writing & thinking', href: '/garden', count: `${gardenArticles.length} articles` },
         { label: 'Teaching', desc: 'Studio & workshops', href: '/teaching', count: 'LTU + EDRA' },
-        { label: 'Tools', desc: 'Interactive apps', href: '/tools', count: '3 tools' },
+        { label: 'Tools', desc: 'Interactive apps', href: '/tools', count: '5 tools' },
         { label: 'Media', desc: 'Podcast & talks', href: '/media', count: 'Coffee Sketch' },
       ].map((pillar) => (
         <a
@@ -90,7 +97,7 @@ const tools = [
       </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       {tools.map((tool) => (
         <ToolCard {...tool} />
       ))}
