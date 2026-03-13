@@ -5,6 +5,10 @@
     { "source": "/tools/echotrace", "destination": "https://acoustics-visualizer.vercel.app", "permanent": false },
     { "source": "/tools/echotrace/:path*", "destination": "https://acoustics-visualizer.vercel.app/:path*", "permanent": false },
     { "source": "/tools/timber-designer", "destination": "https://mass-timber-designer.vercel.app", "permanent": false },
-    { "source": "/tools/timber-designer/:path*", "destination": "https://mass-timber-designer.vercel.app/:path*", "permanent": false }
+    { "source": "/tools/timber-designer/:path*", "destination": "https://mass-timber-designer.vercel.app/:path*", "permanent": false },
+    { "source": "/tools/pattern-explorer", "destination": "https://pattern-language-explorer.vercel.app", "permanent": false },
+    { "source": "/tools/pattern-explorer/:path*", "destination": "https://pattern-language-explorer.vercel.app/:path*", "permanent": false },
+    { "source": "/tools/proposal-writer", "destination": "https://proposal-writer-inky.vercel.app", "permanent": false },
+    { "source": "/tools/proposal-writer/:path*", "destination": "https://proposal-writer-inky.vercel.app/:path*", "permanent": false }
   ]
 }
