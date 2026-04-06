@@ -3,66 +3,78 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Media" description="Coffee Sketch Podcast, speaking engagements, and publications by Kurt Neiswender.">
-  <section class="mx-auto max-w-6xl px-6 py-16 md:py-24">
-    <header class="max-w-2xl mb-14 animate-fade-up">
-      <p class="section-label mb-4">Media</p>
-      <h1 class="mb-4">Media</h1>
-      <p class="text-lg text-text-secondary leading-relaxed">
+
+  <!-- Dark header -->
+  <header class="bg-ink border-b border-rule-dark animate-fade-up">
+    <div class="max-w-7xl mx-auto px-8 py-16 md:py-20">
+      <p class="kicker">Media</p>
+      <h1 class="text-text-inv mb-5" style="font-size: clamp(2.5rem, 4vw + 1rem, 5rem);">Media</h1>
+      <p class="text-[1rem] leading-relaxed text-[#888] max-w-xl">
         Conversations about architecture, education, and practice&mdash;through
         podcast, speaking, and writing.
       </p>
-    </header>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-up" style="animation-delay: 0.1s;">
-      <!-- Podcast -->
-      <a href="/media/podcast" class="group block p-8 rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all duration-200">
-        <p class="text-3xl mb-4" aria-hidden="true">&cir;</p>
-        <h2 class="font-heading text-2xl mb-3 group-hover:text-accent transition-colors">
-          Coffee Sketch Podcast
-        </h2>
-        <p class="text-text-secondary leading-relaxed mb-4">
-          Conversations over coffee and sketching about architecture, practice,
-          and the spaces between. 190+ episodes, listeners in 80+ countries.
-          Co-hosted with Jamie Crawley, AIA.
-        </p>
-        <p class="section-label group-hover:text-accent transition-colors">
-          Listen &rarr;
-        </p>
-      </a>
-
-      <!-- Speaking -->
-      <a href="/media/speaking" class="group block p-8 rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all duration-200">
-        <p class="text-3xl mb-4" aria-hidden="true">&starf;</p>
-        <h2 class="font-heading text-2xl mb-3 group-hover:text-accent transition-colors">
-          Speaking
-        </h2>
-        <p class="text-text-secondary leading-relaxed mb-4">
-          Talks, panels, and presentations on architectural education,
-          computational tools, and sustainable design&mdash;from AIA National
-          Conference to local community forums.
-        </p>
-        <p class="section-label group-hover:text-accent transition-colors">
-          View talks &rarr;
-        </p>
-      </a>
     </div>
+  </header>
 
-    <!-- External links -->
-    <div class="mt-10 animate-fade-up" style="animation-delay: 0.2s;">
-      <div class="flex flex-wrap gap-3">
-        <a href="https://www.coffeesketchpodcast.com" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 px-4 py-2 text-sm rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all">
-          coffeesketchpodcast.com &rarr;
+  <!-- Light content -->
+  <section class="bg-bg">
+    <div class="max-w-7xl mx-auto px-8 py-12 md:py-14">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-0 mb-10">
+
+        <!-- Podcast -->
+        <a href="/media/podcast"
+           class="group block p-8 md:p-10 border border-rule bg-bg relative overflow-hidden transition-colors hover:bg-surface">
+          <div class="absolute top-0 left-0 right-0 h-[3px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" aria-hidden="true"></div>
+          <p class="kicker">Podcast</p>
+          <h2 class="font-heading text-[1.75rem] font-bold uppercase mb-4">Coffee Sketch Podcast</h2>
+          <p class="text-[0.875rem] text-text-secondary leading-relaxed mb-6">
+            Conversations over coffee and sketching about architecture, practice,
+            and the spaces between. 190+ episodes, listeners in 80+ countries.
+            Co-hosted with Jamie Crawley, AIA.
+          </p>
+          <span class="font-mono text-[0.5625rem] tracking-[0.12em] uppercase text-text-secondary group-hover:text-text transition-colors">
+            Listen &thinsp;&rarr;
+          </span>
         </a>
-        <a href="https://www.youtube.com/@coffeesketchpodcast" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 px-4 py-2 text-sm rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all">
-          YouTube &rarr;
+
+        <!-- Speaking -->
+        <a href="/media/speaking"
+           class="group block p-8 md:p-10 border border-rule -ml-px bg-bg relative overflow-hidden transition-colors hover:bg-surface">
+          <div class="absolute top-0 left-0 right-0 h-[3px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" aria-hidden="true"></div>
+          <p class="kicker">Speaking</p>
+          <h2 class="font-heading text-[1.75rem] font-bold uppercase mb-4">Speaking</h2>
+          <p class="text-[0.875rem] text-text-secondary leading-relaxed mb-6">
+            Talks, panels, and presentations on architectural education,
+            computational tools, and sustainable design&mdash;from AIA National
+            Conference to local community forums.
+          </p>
+          <span class="font-mono text-[0.5625rem] tracking-[0.12em] uppercase text-text-secondary group-hover:text-text transition-colors">
+            View talks &thinsp;&rarr;
+          </span>
         </a>
-        <a href="https://www.instagram.com/coffeesketch_podcast" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 px-4 py-2 text-sm rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all">
-          @coffeesketch_podcast &rarr;
-        </a>
+
       </div>
+
+      <!-- External links -->
+      <div class="flex flex-wrap gap-0">
+        {[
+          { href: 'https://www.coffeesketchpodcast.com',        label: 'coffeesketchpodcast.com' },
+          { href: 'https://www.youtube.com/@coffeesketchpodcast', label: 'YouTube'               },
+          { href: 'https://www.instagram.com/coffeesketch_podcast', label: '@coffeesketch_podcast' },
+        ].map(({ href, label }) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center px-4 py-2 font-mono text-[0.5625rem] tracking-[0.12em] uppercase text-text-secondary border border-rule -mr-px hover:bg-ink hover:text-accent hover:border-ink transition-colors"
+          >
+            {label} &thinsp;&rarr;
+          </a>
+        ))}
+      </div>
+
     </div>
   </section>
+
 </BaseLayout>

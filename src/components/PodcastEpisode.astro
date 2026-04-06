@@ -10,15 +10,16 @@ interface Props {
 const { title, number, description, date, url } = Astro.props;
 ---
 
-<div class="group py-5 border-b border-rule last:border-b-0">
-  <div class="flex items-baseline gap-4 mb-2">
-    <span class="font-mono text-xs text-text-secondary shrink-0">
-      EP {String(number).padStart(2, '0')}
+<div class="group py-5 border-b border-rule last:border-b-0 relative">
+  <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-accent scale-y-0 group-hover:scale-y-100 transition-transform duration-150 origin-top"></div>
+  <div class="flex items-baseline gap-4 mb-2 pl-0 group-hover:pl-3 transition-all duration-150">
+    <span class="font-mono text-[0.5625rem] tracking-[0.1em] text-text-secondary shrink-0">
+      EP&thinsp;{String(number).padStart(3, '0')}
     </span>
-    <span class="section-label">{date}</span>
+    <span class="font-mono text-[0.5rem] tracking-[0.12em] uppercase text-text-secondary">{date}</span>
   </div>
 
-  <h3 class="font-heading text-lg mb-1.5">
+  <h3 class="font-heading text-[1.125rem] font-bold uppercase leading-tight mb-2 pl-0 group-hover:pl-3 transition-all duration-150">
     {url ? (
       <a href={url} target="_blank" rel="noopener" class="hover:text-accent transition-colors">
         {title}
@@ -28,7 +29,7 @@ const { title, number, description, date, url } = Astro.props;
     )}
   </h3>
 
-  <p class="text-sm text-text-secondary leading-relaxed">
+  <p class="text-[0.8125rem] text-text-secondary leading-relaxed">
     {description}
   </p>
 </div>

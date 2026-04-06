@@ -5,79 +5,100 @@ import appearances from '../../data/guest-appearances.json';
 ---
 
 <BaseLayout title="Speaking" description="Talks, panels, presentations, and podcast guest appearances by Kurt Neiswender, AIA.">
-  <section class="mx-auto max-w-3xl px-6 py-16 md:py-24">
-    <header class="mb-14 animate-fade-up">
-      <p class="section-label mb-4">Media &middot; Speaking</p>
-      <h1 class="mb-4">Speaking</h1>
-      <p class="text-lg text-text-secondary leading-relaxed">
+
+  <!-- Dark header -->
+  <header class="bg-ink border-b border-rule-dark animate-fade-up">
+    <div class="max-w-7xl mx-auto px-8 py-16 md:py-20">
+      <p class="kicker">Media &middot; Speaking</p>
+      <h1 class="text-text-inv mb-5" style="font-size: clamp(2rem, 3.5vw + 0.75rem, 4.5rem);">Speaking</h1>
+      <p class="text-[1rem] leading-relaxed text-[#888] max-w-xl">
         Selected talks, panels, and guest appearances on architecture, education,
         sustainable design, and computational tools.
       </p>
-    </header>
+    </div>
+  </header>
 
-    <!-- Talks & Presentations -->
-    <div class="mb-16">
-      <h2 class="font-heading text-xl mb-8 pb-3 border-b-2 border-text animate-fade-up">Talks &amp; Presentations</h2>
-      <div class="space-y-8 animate-fade-up" style="animation-delay: 0.1s;">
-        {talks.map((talk: { title: string; event: string; date: string; location: string; description?: string; url?: string }) => (
-          <div class="py-5 border-b border-rule last:border-b-0">
-            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
-              <h3 class="font-heading text-lg">
-                {talk.url ? (
-                  <a href={talk.url} target="_blank" rel="noopener" class="hover:text-accent transition-colors">
-                    {talk.title}
-                  </a>
-                ) : (
-                  talk.title
+  <!-- Light content -->
+  <section class="bg-bg">
+    <div class="max-w-7xl mx-auto px-8 py-12 md:py-14">
+      <div class="max-w-3xl">
+
+        <!-- Talks & Presentations -->
+        <div class="mb-14 animate-fade-up">
+          <h2 class="font-heading text-[1.25rem] font-bold uppercase tracking-[0.02em] mb-6 pb-3 border-b-2 border-ink">
+            Talks &amp; Presentations
+          </h2>
+          <div>
+            {talks.map((talk: { title: string; event: string; date: string; location: string; description?: string; url?: string }) => (
+              <div class="group py-5 border-b border-rule last:border-b-0 relative">
+                <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-accent scale-y-0 group-hover:scale-y-100 transition-transform duration-150 origin-top"></div>
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2 group-hover:pl-3 transition-all duration-150">
+                  <h3 class="font-heading text-[1.125rem] font-bold uppercase leading-tight">
+                    {talk.url ? (
+                      <a href={talk.url} target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                        {talk.title}
+                      </a>
+                    ) : (
+                      talk.title
+                    )}
+                  </h3>
+                  <span class="font-mono text-[0.5rem] tracking-[0.12em] uppercase text-text-secondary shrink-0">{talk.date}</span>
+                </div>
+                <p class="text-[0.8125rem] text-text-secondary group-hover:pl-3 transition-all duration-150">
+                  {talk.event} &middot; {talk.location}
+                </p>
+                {talk.description && (
+                  <p class="text-[0.8125rem] text-text-secondary mt-1.5 leading-relaxed group-hover:pl-3 transition-all duration-150">
+                    {talk.description}
+                  </p>
                 )}
-              </h3>
-              <span class="section-label shrink-0">{talk.date}</span>
-            </div>
-            <p class="text-sm text-text-secondary">
-              {talk.event} &middot; {talk.location}
-            </p>
-            {talk.description && (
-              <p class="text-sm text-text-secondary mt-2 leading-relaxed">{talk.description}</p>
-            )}
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <!-- Guest Appearances -->
+        <div class="mb-12 animate-fade-up" style="animation-delay: 0.1s;">
+          <h2 class="font-heading text-[1.25rem] font-bold uppercase tracking-[0.02em] mb-6 pb-3 border-b-2 border-ink">
+            Invited Podcast Appearances
+          </h2>
+          <div>
+            {appearances.map((app: { title: string; show: string; episode: string; date: string; description?: string; url?: string }) => (
+              <div class="group py-5 border-b border-rule last:border-b-0 relative">
+                <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-accent scale-y-0 group-hover:scale-y-100 transition-transform duration-150 origin-top"></div>
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2 group-hover:pl-3 transition-all duration-150">
+                  <h3 class="font-heading text-[1.125rem] font-bold uppercase leading-tight">
+                    {app.url ? (
+                      <a href={app.url} target="_blank" rel="noopener" class="hover:text-accent transition-colors">
+                        &ldquo;{app.title}&rdquo;
+                      </a>
+                    ) : (
+                      <span>&ldquo;{app.title}&rdquo;</span>
+                    )}
+                  </h3>
+                  <span class="font-mono text-[0.5rem] tracking-[0.12em] uppercase text-text-secondary shrink-0">{app.date}</span>
+                </div>
+                <p class="text-[0.8125rem] text-text-secondary group-hover:pl-3 transition-all duration-150">
+                  {app.show} &middot; {app.episode}
+                </p>
+                {app.description && (
+                  <p class="text-[0.8125rem] text-text-secondary mt-1.5 leading-relaxed group-hover:pl-3 transition-all duration-150">
+                    {app.description}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-rule">
+          <a href="/media" class="font-mono text-[0.5625rem] tracking-[0.12em] uppercase text-text-secondary border-b border-rule pb-px hover:text-text hover:border-text transition-colors">
+            &larr; Back to Media
+          </a>
+        </div>
+
       </div>
     </div>
-
-    <!-- Guest Appearances -->
-    <div class="mb-12">
-      <h2 class="font-heading text-xl mb-8 pb-3 border-b-2 border-text animate-fade-up">Invited Podcast Appearances</h2>
-      <div class="space-y-8 animate-fade-up" style="animation-delay: 0.15s;">
-        {appearances.map((app: { title: string; show: string; episode: string; date: string; description?: string; url?: string }) => (
-          <div class="py-5 border-b border-rule last:border-b-0">
-            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
-              <h3 class="font-heading text-lg">
-                {app.url ? (
-                  <a href={app.url} target="_blank" rel="noopener" class="hover:text-accent transition-colors">
-                    &ldquo;{app.title}&rdquo;
-                  </a>
-                ) : (
-                  <span>&ldquo;{app.title}&rdquo;</span>
-                )}
-              </h3>
-              <span class="section-label shrink-0">{app.date}</span>
-            </div>
-            <p class="text-sm text-text-secondary">
-              {app.show} &middot; {app.episode}
-            </p>
-            {app.description && (
-              <p class="text-sm text-text-secondary mt-2 leading-relaxed">{app.description}</p>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <footer class="mt-12">
-      <hr class="rule mb-6" />
-      <a href="/media" class="text-sm text-text-secondary hover:text-accent transition-colors">
-        &larr; Back to media
-      </a>
-    </footer>
   </section>
+
 </BaseLayout>

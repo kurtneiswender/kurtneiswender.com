@@ -6,88 +6,87 @@ import { getCollection } from 'astro:content';
 const articles = await getCollection('garden');
 const sorted = articles.sort((a, b) => b.data.updated.getTime() - a.data.updated.getTime());
 
-const maturityGroups = {
-  all: sorted,
-  evergreen: sorted.filter((a) => a.data.maturity === 'evergreen'),
-  sprout: sorted.filter((a) => a.data.maturity === 'sprout'),
-  seed: sorted.filter((a) => a.data.maturity === 'seed'),
-};
-
 const counts = {
-  all: maturityGroups.all.length,
-  evergreen: maturityGroups.evergreen.length,
-  sprout: maturityGroups.sprout.length,
-  seed: maturityGroups.seed.length,
+  all:       sorted.length,
+  evergreen: sorted.filter((a) => a.data.maturity === 'evergreen').length,
+  sprout:    sorted.filter((a) => a.data.maturity === 'sprout').length,
+  seed:      sorted.filter((a) => a.data.maturity === 'seed').length,
 };
 ---
 
 <BaseLayout title="Garden" description="A digital garden of ideas about architecture, practice, and education. Articles grow from seeds to evergreen.">
-  <section class="mx-auto max-w-6xl px-6 py-16 md:py-24">
-    <header class="max-w-2xl mb-14 animate-fade-up">
-      <p class="section-label mb-4">Digital Garden</p>
-      <h1 class="mb-4">Garden</h1>
-      <p class="text-lg text-text-secondary leading-relaxed">
+
+  <!-- Dark header -->
+  <header class="bg-ink border-b border-rule-dark animate-fade-up">
+    <div class="max-w-7xl mx-auto px-8 py-16 md:py-20">
+      <p class="kicker">Digital Garden</p>
+      <h1 class="text-text-inv mb-5" style="font-size: clamp(2.5rem, 4vw + 1rem, 5rem);">Garden</h1>
+      <p class="text-[1rem] leading-relaxed text-[#888] max-w-xl">
         Ideas grow here. Articles start as seeds&mdash;rough notes and early
         thoughts&mdash;and develop into evergreen references over time.
       </p>
-    </header>
-
-    <!-- Maturity filter (client-side) -->
-    <div class="flex flex-wrap gap-2 mb-10 animate-fade-up" style="animation-delay: 0.1s;" id="filter-bar">
-      {(['all', 'evergreen', 'sprout', 'seed'] as const).map((key) => (
-        <button
-          data-filter={key}
-          class:list={[
-            'filter-btn px-3 py-1.5 text-sm rounded-full border transition-all duration-200',
-            key === 'all'
-              ? 'border-text bg-text text-bg'
-              : 'border-rule text-text-secondary hover:border-text-secondary',
-          ]}
-        >
-          {key.charAt(0).toUpperCase() + key.slice(1)}
-          <span class="ml-1 font-mono text-xs opacity-60">{counts[key]}</span>
-        </button>
-      ))}
     </div>
+  </header>
 
-    <!-- Article grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-up" style="animation-delay: 0.15s;" id="garden-grid">
-      {sorted.map((article) => (
-        <div data-maturity={article.data.maturity}>
-          <GardenCard
-            title={article.data.title}
-            description={article.data.description}
-            maturity={article.data.maturity}
-            slug={article.id}
-            updated={article.data.updated}
-          />
-        </div>
-      ))}
+  <!-- Light content -->
+  <section class="bg-bg">
+    <div class="max-w-7xl mx-auto px-8 py-12 md:py-14">
+
+      <!-- Filter bar -->
+      <div class="flex flex-wrap gap-2 mb-10" id="filter-bar">
+        {(['all', 'evergreen', 'sprout', 'seed'] as const).map((key) => (
+          <button
+            data-filter={key}
+            class:list={[
+              'filter-btn font-mono text-[0.5625rem] tracking-[0.14em] uppercase px-3 py-1.5 border transition-all duration-150',
+              key === 'all'
+                ? 'bg-ink text-accent border-ink'
+                : 'bg-bg text-text-secondary border-rule hover:border-ink hover:text-text',
+            ]}
+          >
+            {key.charAt(0).toUpperCase() + key.slice(1)}
+            <span class="ml-1.5 opacity-50">{counts[key]}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Article grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-0" id="garden-grid">
+        {sorted.map((article) => (
+          <div data-maturity={article.data.maturity}>
+            <GardenCard
+              title={article.data.title}
+              description={article.data.description}
+              maturity={article.data.maturity}
+              slug={article.id}
+              updated={article.data.updated}
+            />
+          </div>
+        ))}
+      </div>
+
     </div>
   </section>
+
 </BaseLayout>
 
 <script>
   const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-  const cards = document.querySelectorAll<HTMLElement>('#garden-grid > div');
+  const cards   = document.querySelectorAll<HTMLElement>('#garden-grid > div');
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
 
       buttons.forEach((b) => {
-        b.classList.remove('border-text', 'bg-text', 'text-bg');
-        b.classList.add('border-rule', 'text-text-secondary');
+        b.classList.remove('bg-ink', 'text-accent', 'border-ink');
+        b.classList.add('bg-bg', 'text-text-secondary', 'border-rule');
       });
-      btn.classList.remove('border-rule', 'text-text-secondary');
-      btn.classList.add('border-text', 'bg-text', 'text-bg');
+      btn.classList.remove('bg-bg', 'text-text-secondary', 'border-rule');
+      btn.classList.add('bg-ink', 'text-accent', 'border-ink');
 
       cards.forEach((card) => {
-        if (filter === 'all' || card.dataset.maturity === filter) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
+        card.style.display = (filter === 'all' || card.dataset.maturity === filter) ? '' : 'none';
       });
     });
   });

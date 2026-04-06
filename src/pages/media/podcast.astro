@@ -5,46 +5,56 @@ import episodes from '../../data/podcast-episodes.json';
 ---
 
 <BaseLayout title="Coffee Sketch Podcast" description="Coffee Sketch Podcast — conversations about architecture, practice, and the spaces between. 190+ episodes, listeners in 80+ countries.">
-  <section class="mx-auto max-w-3xl px-6 py-16 md:py-24">
-    <header class="mb-14 animate-fade-up">
-      <p class="section-label mb-4">Media &middot; Podcast</p>
-      <h1 class="mb-4">Coffee Sketch Podcast</h1>
-      <p class="text-lg text-text-secondary leading-relaxed">
+
+  <!-- Dark header -->
+  <header class="bg-ink border-b border-rule-dark animate-fade-up">
+    <div class="max-w-7xl mx-auto px-8 py-16 md:py-20">
+      <p class="kicker">Media &middot; Podcast</p>
+      <h1 class="text-text-inv mb-5" style="font-size: clamp(2rem, 3.5vw + 0.75rem, 4.5rem);">
+        Coffee Sketch Podcast
+      </h1>
+      <p class="text-[1rem] leading-relaxed text-[#888] max-w-xl mb-8">
         Conversations over coffee and sketching about architecture, practice,
         and the spaces between. Co-hosted with Jamie Crawley, AIA since 2018.
         190+ episodes, listeners in 80+ countries.
       </p>
-      <div class="flex flex-wrap gap-3 mt-6">
-        <a href="https://www.coffeesketchpodcast.com" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all">
-          Website &rarr;
-        </a>
-        <a href="https://www.youtube.com/@coffeesketchpodcast" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all">
-          YouTube &rarr;
-        </a>
-        <a href="https://www.instagram.com/coffeesketch_podcast" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all">
-          Instagram &rarr;
-        </a>
-        <a href="https://www.buymeacoffee.com/coffeesketch" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all">
-          Support the Show &rarr;
+      <div class="flex flex-wrap gap-0">
+        {[
+          { href: 'https://www.coffeesketchpodcast.com',        label: 'Website'           },
+          { href: 'https://www.youtube.com/@coffeesketchpodcast', label: 'YouTube'         },
+          { href: 'https://www.instagram.com/coffeesketch_podcast', label: 'Instagram'     },
+          { href: 'https://www.buymeacoffee.com/coffeesketch',  label: 'Support the Show'  },
+        ].map(({ href, label }) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener"
+            class="font-mono text-[0.5625rem] tracking-[0.12em] uppercase text-[#888] border border-rule-dark px-4 py-2 -mr-px hover:bg-accent hover:text-ink hover:border-accent transition-colors"
+          >
+            {label} &rarr;
+          </a>
+        ))}
+      </div>
+    </div>
+  </header>
+
+  <!-- Light content -->
+  <section class="bg-bg">
+    <div class="max-w-7xl mx-auto px-8 py-12 md:py-14">
+
+      <div class="max-w-3xl animate-fade-up" style="animation-delay: 0.1s;">
+        {episodes.map((ep: { title: string; number: number; description: string; date: string; url?: string }) => (
+          <PodcastEpisode {...ep} />
+        ))}
+      </div>
+
+      <div class="max-w-3xl mt-12 pt-8 border-t border-rule">
+        <a href="/media" class="font-mono text-[0.5625rem] tracking-[0.12em] uppercase text-text-secondary border-b border-rule pb-px hover:text-text hover:border-text transition-colors">
+          &larr; Back to Media
         </a>
       </div>
-    </header>
 
-    <div class="animate-fade-up" style="animation-delay: 0.1s;">
-      {episodes.map((ep: { title: string; number: number; description: string; date: string; url?: string }) => (
-        <PodcastEpisode {...ep} />
-      ))}
     </div>
-
-    <footer class="mt-12">
-      <hr class="rule mb-6" />
-      <a href="/media" class="text-sm text-text-secondary hover:text-accent transition-colors">
-        &larr; Back to media
-      </a>
-    </footer>
   </section>
+
 </BaseLayout>

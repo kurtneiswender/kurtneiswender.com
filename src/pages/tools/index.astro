@@ -8,25 +8,25 @@ const tools = [
     description: 'Comprehensive energy modeling and HVAC load calculations. Supports multiple building types with space-by-space analysis, EUI reduction strategies, and exportable reports.',
     href: '/tools/hvac-calculator',
     status: 'live' as const,
-    icon: '\u{1F321}\u{FE0F}',
+    icon: '🌡️',
   },
   {
     title: 'EchoTrace',
     description: 'Acoustic simulation and visualization for room design. Model reverberation time, speech intelligibility, and sound distribution in real-time.',
     href: '/tools/echotrace',
     status: 'live' as const,
-    icon: '\u{1F50A}',
+    icon: '🔊',
   },
   {
     title: 'Timber Designer',
     description: 'Parametric mass timber building designer with real-time 3D visualization. Configure structural bays, floor counts, and CLT/glulam assemblies.',
     href: '/tools/timber-designer',
     status: 'beta' as const,
-    icon: '\u{1FAB5}',
+    icon: '🪵',
   },
   {
     title: 'Pattern Explorer',
-    description: 'An interactive map of Christopher Alexander\'s 253 architectural patterns. Navigate the network, compose isometric spatial diagrams, and annotate field observations with AI pattern matching.',
+    description: "An interactive map of Christopher Alexander's 253 architectural patterns. Navigate the network, compose isometric spatial diagrams, and annotate field observations with AI pattern matching.",
     href: '/tools/pattern-explorer',
     status: 'beta' as const,
     icon: '◉',
@@ -42,30 +42,45 @@ const tools = [
 ---
 
 <BaseLayout title="Tools" description="Interactive web tools for architects — HVAC calculations, acoustic simulation, and mass timber design.">
-  <section class="mx-auto max-w-6xl px-6 py-16 md:py-24">
-    <header class="max-w-2xl mb-14 animate-fade-up">
-      <p class="section-label mb-4">Practice</p>
-      <h1 class="mb-4">Tools</h1>
-      <p class="text-lg text-text-secondary leading-relaxed">
+
+  <!-- Dark header -->
+  <header class="bg-ink border-b border-rule-dark animate-fade-up">
+    <div class="max-w-7xl mx-auto px-8 py-16 md:py-20">
+      <p class="kicker">Practice</p>
+      <h1 class="text-text-inv mb-5" style="font-size: clamp(2.5rem, 4vw + 1rem, 5rem);">Tools</h1>
+      <p class="text-[1rem] leading-relaxed text-[#888] max-w-xl">
         Interactive instruments for architectural practice. Each tool is a
         standalone web application&mdash;free to use, built to learn.
       </p>
-    </header>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-up" style="animation-delay: 0.1s;">
-      {tools.map((tool) => (
-        <ToolCard {...tool} />
-      ))}
     </div>
+  </header>
 
-    <div class="mt-16 p-6 rounded-lg bg-surface/50 border border-rule animate-fade-up" style="animation-delay: 0.2s;">
-      <p class="section-label mb-3">About these tools</p>
-      <p class="text-sm text-text-secondary leading-relaxed max-w-2xl">
-        These tools are built with React, TypeScript, and Three.js. They run
-        entirely in your browser. Each started as a teaching exercise or
-        professional need and evolved into something others might find useful.
-        Source code is available on <a href="https://github.com/kurtneiswender" class="text-accent hover:underline" target="_blank" rel="noopener">GitHub</a>.
-      </p>
+  <!-- Light content -->
+  <section class="bg-bg">
+    <div class="max-w-7xl mx-auto px-8 py-12 md:py-14">
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 mb-12">
+        {tools.map((tool) => (
+          <ToolCard {...tool} />
+        ))}
+      </div>
+
+      <!-- About note -->
+      <div class="border border-rule p-6 md:p-8">
+        <p class="kicker">About these tools</p>
+        <p class="text-[0.875rem] text-text-secondary leading-relaxed max-w-2xl">
+          These tools are built with React, TypeScript, and Three.js. They run
+          entirely in your browser. Each started as a teaching exercise or
+          professional need and evolved into something others might find useful.
+          Source code is available on{' '}
+          <a href="https://github.com/kurtneiswender" target="_blank" rel="noopener"
+             class="text-text border-b border-rule hover:border-accent hover:text-accent transition-colors">
+            GitHub
+          </a>.
+        </p>
+      </div>
+
     </div>
   </section>
+
 </BaseLayout>

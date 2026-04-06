@@ -3,48 +3,63 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Teaching" description="Architecture courses at Lawrence Technological University — Comprehensive Design Studio and AI-Enabled Toolmaking workshops.">
-  <section class="mx-auto max-w-6xl px-6 py-16 md:py-24">
-    <header class="max-w-2xl mb-14 animate-fade-up">
-      <p class="section-label mb-4">Teaching</p>
-      <h1 class="mb-4">Teaching</h1>
-      <p class="text-lg text-text-secondary leading-relaxed">
+
+  <!-- Dark header -->
+  <header class="bg-ink border-b border-rule-dark animate-fade-up">
+    <div class="max-w-7xl mx-auto px-8 py-16 md:py-20">
+      <p class="kicker">LTU · EDRA</p>
+      <h1 class="text-text-inv mb-5" style="font-size: clamp(2.5rem, 4vw + 1rem, 5rem);">Teaching</h1>
+      <p class="text-[1rem] leading-relaxed text-[#888] max-w-xl">
         Architecture education at LTU&mdash;integrating building performance,
         computation, and design thinking into studio practice.
       </p>
-    </header>
+    </div>
+  </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-up" style="animation-delay: 0.1s;">
-      <!-- Comp Design -->
-      <a href="/teaching/comp-design" class="group block p-8 rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all duration-200">
-        <p class="section-label mb-4">Studio</p>
-        <h2 class="font-heading text-2xl mb-3 group-hover:text-accent transition-colors">
-          Comprehensive Design
-        </h2>
-        <p class="text-text-secondary leading-relaxed mb-4">
-          Capstone design studio at LTU integrating structural, environmental,
-          and building systems into a unified architectural proposition.
-          ACSA &ldquo;Timber in the City 6&rdquo; competition entry.
-        </p>
-        <p class="section-label group-hover:text-accent transition-colors">
-          View course &rarr;
-        </p>
-      </a>
+  <!-- Light content -->
+  <section class="bg-bg">
+    <div class="max-w-7xl mx-auto px-8 py-12 md:py-14">
 
-      <!-- EDRA57 -->
-      <a href="/teaching/edra57" class="group block p-8 rounded-lg border border-rule hover:border-timber/40 bg-surface/30 hover:bg-surface transition-all duration-200">
-        <p class="section-label mb-4">Workshop</p>
-        <h2 class="font-heading text-2xl mb-3 group-hover:text-accent transition-colors">
-          EDRA57 Workshop
-        </h2>
-        <p class="text-text-secondary leading-relaxed mb-4">
-          AI-Enabled Toolmaking for Architects&mdash;a hands-on workshop
-          exploring how generative AI can augment architectural computation
-          and design workflows.
-        </p>
-        <p class="section-label group-hover:text-accent transition-colors">
-          View workshop &rarr;
-        </p>
-      </a>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+
+        <!-- Comp Design -->
+        <a href="/teaching/comp-design"
+           class="group block p-8 md:p-10 border border-rule bg-bg relative overflow-hidden transition-colors hover:bg-surface">
+          <div class="absolute top-0 left-0 right-0 h-[3px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" aria-hidden="true"></div>
+          <p class="kicker">Studio</p>
+          <h2 class="font-heading text-[1.75rem] font-bold uppercase mb-4 transition-colors">
+            Comprehensive Design
+          </h2>
+          <p class="text-[0.875rem] text-text-secondary leading-relaxed mb-6">
+            Capstone design studio at LTU integrating structural, environmental,
+            and building systems into a unified architectural proposition.
+            ACSA &ldquo;Timber in the City 6&rdquo; competition entry.
+          </p>
+          <span class="font-mono text-[0.5625rem] tracking-[0.12em] uppercase text-text-secondary group-hover:text-text transition-colors">
+            View course &thinsp;&rarr;
+          </span>
+        </a>
+
+        <!-- EDRA57 -->
+        <a href="/teaching/edra57"
+           class="group block p-8 md:p-10 border border-rule -ml-px bg-bg relative overflow-hidden transition-colors hover:bg-surface">
+          <div class="absolute top-0 left-0 right-0 h-[3px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" aria-hidden="true"></div>
+          <p class="kicker">Workshop</p>
+          <h2 class="font-heading text-[1.75rem] font-bold uppercase mb-4 transition-colors">
+            EDRA57 Workshop
+          </h2>
+          <p class="text-[0.875rem] text-text-secondary leading-relaxed mb-6">
+            AI-Enabled Toolmaking for Architects&mdash;a hands-on workshop
+            exploring how generative AI can augment architectural computation
+            and design workflows.
+          </p>
+          <span class="font-mono text-[0.5625rem] tracking-[0.12em] uppercase text-text-secondary group-hover:text-text transition-colors">
+            View workshop &thinsp;&rarr;
+          </span>
+        </a>
+
+      </div>
     </div>
   </section>
+
 </BaseLayout>

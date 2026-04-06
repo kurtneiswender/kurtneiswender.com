@@ -3,19 +3,32 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="About" description="Kurt Neiswender, AIA, LEED — architect, educator, and toolmaker at Lawrence Technological University. Principal at Urban Colab Architecture.">
-  <section class="mx-auto max-w-6xl px-6 py-16 md:py-24">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
-      <!-- Main content -->
-      <div class="md:col-span-8 animate-fade-up">
-        <p class="section-label mb-4">About</p>
-        <h1 class="mb-8">Kurt Neiswender</h1>
 
-        <div class="prose">
+  <!-- Dark header -->
+  <header class="bg-ink border-b border-rule-dark animate-fade-up">
+    <div class="max-w-7xl mx-auto px-8 py-16 md:py-20">
+      <p class="kicker">About</p>
+      <h1 class="text-text-inv mb-5" style="font-size: clamp(2.5rem, 4vw + 1rem, 5rem);">Kurt Neiswender</h1>
+      <p class="text-[1rem] leading-relaxed text-[#888] max-w-xl">
+        Registered architect, LEED AP, educator, and toolmaker.
+        Principal at Urban Colab Architecture &middot; LTU Assistant Professor of Practice.
+      </p>
+    </div>
+  </header>
+
+  <!-- Light content -->
+  <section class="bg-bg">
+    <div class="max-w-7xl mx-auto px-8 py-12 md:py-14">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12 lg:gap-16 items-start">
+
+        <!-- Main prose -->
+        <div class="prose animate-fade-up">
+
           <p>
-            I'm a registered architect, LEED Accredited Professional, and
+            I&rsquo;m a registered architect, LEED Accredited Professional, and
             <a href="https://ltu.edu/faculty/neiswender-aia-kurt/" target="_blank" rel="noopener">Assistant Professor of Practice</a> at
             <strong>Lawrence Technological University</strong> in the College of
-            Architecture and Design. I'm also the founder and principal architect at
+            Architecture and Design. I&rsquo;m also the founder and principal architect at
             <a href="https://www.urbancolab.design" target="_blank" rel="noopener">Urban Colab Architecture, L3C</a>
             in Flint, Michigan.
           </p>
@@ -36,7 +49,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             integration of building systems, environmental performance, and design
             intent. I teach HVAC and Water Systems, Acoustics and Illumination, and
             the Comprehensive Design Studio at both undergraduate and graduate levels.
-            I'm interested in how computational tools can make architects more fluent
+            I&rsquo;m interested in how computational tools can make architects more fluent
             in the technical dimensions of their work without losing the poetry.
           </p>
 
@@ -53,8 +66,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             I also co-host the
             <a href="https://www.coffeesketchpodcast.com" target="_blank" rel="noopener">Coffee Sketch Podcast</a>
             with Jamie Crawley, AIA&mdash;a global design podcast with 190+ episodes
-            and listeners in 80+ countries, exploring architecture, creativity, and
-            technology through the medium of the sketch.
+            and listeners in 80+ countries.
           </p>
 
           <h2>Recognition</h2>
@@ -81,8 +93,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           </ul>
 
           <p>
-            <a href="/about/cv">View full CV &rarr;</a> &nbsp;|&nbsp;
-            <a href="/about/Curriculum Vitae Practice.pdf" target="_blank" rel="noopener">Download CV (PDF)</a> &nbsp;|&nbsp;
+            <a href="/about/cv">View full CV &rarr;</a> &nbsp;&middot;&nbsp;
+            <a href="/about/Curriculum Vitae Practice.pdf" target="_blank" rel="noopener">Download CV (PDF)</a> &nbsp;&middot;&nbsp;
             <a href="/about/Significant Work.pdf" target="_blank" rel="noopener">Significant Work (PDF)</a>
           </p>
 
@@ -92,58 +104,57 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             The best way to reach me is by email at
             <a href="mailto:info@urbancolab.design">info@urbancolab.design</a>.
           </p>
-        </div>
-      </div>
 
-      <!-- Sidebar -->
-      <aside class="md:col-span-4 animate-fade-up" style="animation-delay: 0.1s;">
-        <div class="sticky top-24 space-y-8">
-          <div class="p-5 rounded-lg bg-surface border border-rule">
-            <p class="section-label mb-3">Quick facts</p>
-            <dl class="space-y-3 text-sm">
-              <div>
-                <dt class="text-text-secondary">Role</dt>
-                <dd class="font-medium">Assistant Professor of Practice, LTU</dd>
-              </div>
-              <div>
-                <dt class="text-text-secondary">Practice</dt>
-                <dd class="font-medium"><a href="https://www.urbancolab.design" target="_blank" rel="noopener" class="hover:text-accent transition-colors">Urban Colab Architecture, L3C</a></dd>
-              </div>
-              <div>
-                <dt class="text-text-secondary">License</dt>
-                <dd class="font-medium">Registered Architect, AIA, LEED AP</dd>
-              </div>
-              <div>
-                <dt class="text-text-secondary">Location</dt>
-                <dd class="font-medium">Flint, Michigan</dd>
-              </div>
-              <div>
-                <dt class="text-text-secondary">Focus</dt>
-                <dd class="font-medium">Comprehensive Design, Sustainable Housing, Building Performance</dd>
-              </div>
-              <div>
-                <dt class="text-text-secondary">Contact</dt>
-                <dd class="font-medium"><a href="mailto:info@urbancolab.design" class="hover:text-accent transition-colors">info@urbancolab.design</a></dd>
-              </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="lg:sticky lg:top-24 animate-fade-up" style="animation-delay: 0.1s;">
+          <div class="border border-rule p-5 mb-6">
+            <p class="kicker">Quick Facts</p>
+            <dl class="space-y-3 text-[0.8125rem]">
+              {[
+                { dt: 'Role',     dd: 'Assistant Professor of Practice, LTU'                   },
+                { dt: 'Practice', dd: 'Urban Colab Architecture, L3C', href: 'https://www.urbancolab.design' },
+                { dt: 'License',  dd: 'Registered Architect, AIA, LEED AP'                     },
+                { dt: 'Location', dd: 'Flint, Michigan'                                        },
+                { dt: 'Contact',  dd: 'info@urbancolab.design', href: 'mailto:info@urbancolab.design' },
+              ].map(({ dt, dd, href }) => (
+                <div>
+                  <dt class="font-mono text-[0.5rem] tracking-[0.12em] uppercase text-text-secondary mb-0.5">{dt}</dt>
+                  <dd class="text-text font-medium">
+                    {href ? (
+                      <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener"
+                         class="hover:text-accent transition-colors">{dd}</a>
+                    ) : dd}
+                  </dd>
+                </div>
+              ))}
             </dl>
           </div>
 
-          <div class="space-y-2">
-            <a href="/about/cv" class="block text-sm text-accent hover:underline">
-              Full CV &rarr;
-            </a>
-            <a href="https://www.urbancolab.design" target="_blank" rel="noopener" class="block text-sm text-text-secondary hover:text-accent transition-colors">
-              Urban Colab Architecture &rarr;
-            </a>
-            <a href="https://www.coffeesketchpodcast.com" target="_blank" rel="noopener" class="block text-sm text-text-secondary hover:text-accent transition-colors">
-              Coffee Sketch Podcast &rarr;
-            </a>
-            <a href="https://ltu.edu/faculty/neiswender-aia-kurt/" target="_blank" rel="noopener" class="block text-sm text-text-secondary hover:text-accent transition-colors">
-              LTU Faculty Page &rarr;
-            </a>
-          </div>
-        </div>
-      </aside>
+          <ul class="space-y-2">
+            {[
+              { href: '/about/cv',                             label: 'Full CV',               ext: false },
+              { href: 'https://www.urbancolab.design',         label: 'Urban Colab Architecture', ext: true },
+              { href: 'https://www.coffeesketchpodcast.com',   label: 'Coffee Sketch Podcast', ext: true },
+              { href: 'https://ltu.edu/faculty/neiswender-aia-kurt/', label: 'LTU Faculty Page', ext: true },
+            ].map(({ href, label, ext }) => (
+              <li>
+                <a
+                  href={href}
+                  target={ext ? '_blank' : undefined}
+                  rel={ext ? 'noopener' : undefined}
+                  class="font-mono text-[0.5625rem] tracking-[0.12em] uppercase text-text-secondary border-b border-rule pb-px hover:text-text hover:border-text transition-colors"
+                >
+                  {label} &thinsp;&rarr;
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+
+      </div>
     </div>
   </section>
+
 </BaseLayout>

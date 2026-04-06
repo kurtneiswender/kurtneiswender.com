@@ -2,58 +2,93 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="mt-auto">
-  <hr class="rule" />
-  <div class="mx-auto max-w-6xl px-6 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+<footer class="mt-auto bg-ink border-t border-rule-dark">
+
+  <!-- Main footer grid -->
+  <div class="max-w-7xl mx-auto px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 border-b border-rule-dark pb-10 mb-8">
+
       <!-- Identity -->
-      <div class="md:col-span-2">
-        <p class="font-heading text-lg mb-2">Kurt Neiswender, AIA, LEED</p>
-        <p class="text-sm text-text-secondary leading-relaxed max-w-sm">
+      <div class="md:col-span-1">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-[30px] h-[30px] border-[1.5px] border-text-inv flex items-center justify-center font-body text-[0.6875rem] font-bold text-text-inv shrink-0">
+            KN
+          </div>
+          <span class="font-body text-[0.8125rem] font-semibold tracking-[0.07em] uppercase text-text-inv">
+            Kurt Neiswender
+          </span>
+        </div>
+        <p class="text-[0.8125rem] leading-relaxed text-[#888] max-w-xs mb-3">
           Architect, educator, toolmaker. Principal at
-          <a href="https://www.urbancolab.design" target="_blank" rel="noopener" class="hover:text-accent transition-colors">Urban Colab Architecture</a>
+          <a href="https://www.urbancolab.design" target="_blank" rel="noopener"
+             class="text-text-inv border-b border-rule-dark hover:border-accent transition-colors">Urban Colab Architecture</a>
           and Assistant Professor of Practice at Lawrence Technological University.
         </p>
-        <p class="text-sm text-text-secondary mt-3">
-          <a href="mailto:info@urbancolab.design" class="hover:text-accent transition-colors">info@urbancolab.design</a>
+        <p class="text-[0.75rem] font-mono">
+          <a href="mailto:info@urbancolab.design"
+             class="text-[#888] hover:text-accent transition-colors tracking-wide">
+            info@urbancolab.design
+          </a>
         </p>
       </div>
 
-      <!-- Navigation -->
+      <!-- Navigate -->
       <div>
-        <p class="section-label mb-3">Navigate</p>
-        <ul class="space-y-2 text-sm">
-          <li><a href="/garden" class="text-text-secondary hover:text-text transition-colors">Garden</a></li>
-          <li><a href="/teaching" class="text-text-secondary hover:text-text transition-colors">Teaching</a></li>
-          <li><a href="/tools" class="text-text-secondary hover:text-text transition-colors">Tools</a></li>
-          <li><a href="/media" class="text-text-secondary hover:text-text transition-colors">Media</a></li>
-          <li><a href="/about" class="text-text-secondary hover:text-text transition-colors">About</a></li>
-          <li><a href="/about/cv" class="text-text-secondary hover:text-text transition-colors">CV</a></li>
+        <p class="font-mono text-[0.5625rem] tracking-[0.18em] uppercase text-accent mb-4">Navigate</p>
+        <ul class="space-y-2">
+          {[
+            { href: '/garden',   label: 'Garden'   },
+            { href: '/teaching', label: 'Teaching' },
+            { href: '/tools',    label: 'Tools'    },
+            { href: '/media',    label: 'Media'    },
+            { href: '/about',    label: 'About'    },
+            { href: '/about/cv', label: 'CV'       },
+          ].map(({ href, label }) => (
+            <li>
+              <a href={href}
+                 class="text-[0.8125rem] text-[#888] hover:text-accent transition-colors tracking-wide">
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
       <!-- Elsewhere -->
       <div>
-        <p class="section-label mb-3">Elsewhere</p>
-        <ul class="space-y-2 text-sm">
-          <li><a href="https://www.urbancolab.design" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">Urban Colab Architecture</a></li>
-          <li><a href="https://www.coffeesketchpodcast.com" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">Coffee Sketch Podcast</a></li>
-          <li><a href="https://www.youtube.com/@coffeesketchpodcast" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">YouTube</a></li>
-          <li><a href="https://www.instagram.com/kurtneiswender" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.instagram.com/urbancolab.design" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">Instagram (Practice)</a></li>
-          <li><a href="https://www.instagram.com/coffeesketch_podcast" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">Instagram (Podcast)</a></li>
-          <li><a href="https://x.com/kurtneiswender" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">X / Twitter</a></li>
-          <li><a href="https://github.com/kurtneiswender" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://ltu.edu/faculty/neiswender-aia-kurt/" class="text-text-secondary hover:text-text transition-colors" target="_blank" rel="noopener">LTU Faculty Page</a></li>
+        <p class="font-mono text-[0.5625rem] tracking-[0.18em] uppercase text-accent mb-4">Elsewhere</p>
+        <ul class="space-y-2">
+          {[
+            { href: 'https://www.urbancolab.design',               label: 'Urban Colab Architecture'  },
+            { href: 'https://www.coffeesketchpodcast.com',         label: 'Coffee Sketch Podcast'     },
+            { href: 'https://www.youtube.com/@coffeesketchpodcast', label: 'YouTube'                  },
+            { href: 'https://www.instagram.com/kurtneiswender',   label: 'Instagram'                 },
+            { href: 'https://x.com/kurtneiswender',               label: 'X / Twitter'               },
+            { href: 'https://github.com/kurtneiswender',          label: 'GitHub'                    },
+            { href: 'https://ltu.edu/faculty/neiswender-aia-kurt/', label: 'LTU Faculty Page'        },
+          ].map(({ href, label }) => (
+            <li>
+              <a href={href} target="_blank" rel="noopener"
+                 class="text-[0.8125rem] text-[#888] hover:text-accent transition-colors tracking-wide">
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
+
     </div>
 
-    <hr class="rule my-8" />
-
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-text-secondary">
-      <p>&copy; {year} Kurt Neiswender, AIA</p>
-      <p class="section-label">Built with Astro</p>
+    <!-- Bottom bar -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+      <p class="font-mono text-[0.5625rem] tracking-[0.12em] uppercase text-[#444]">
+        &copy; {year} Kurt Neiswender, AIA &middot; Flint, Michigan
+      </p>
+      <a href="/colophon"
+         class="font-mono text-[0.5625rem] tracking-[0.12em] uppercase text-[#444] hover:text-accent transition-colors">
+        Colophon
+      </a>
     </div>
   </div>
+
 </footer>

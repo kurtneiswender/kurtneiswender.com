@@ -3,67 +3,77 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Colophon" description="How this site was built — technology, design decisions, and acknowledgments.">
-  <section class="mx-auto max-w-3xl px-6 py-16 md:py-24">
-    <header class="mb-12 animate-fade-up">
-      <p class="section-label mb-4">Colophon</p>
-      <h1 class="mb-4">How This Site Is Built</h1>
-    </header>
 
-    <div class="prose animate-fade-up" style="animation-delay: 0.1s;">
-      <p>
-        This site is built with <strong>Astro</strong>&mdash;a static-first
-        framework that ships zero JavaScript by default. The content is mostly
-        prose, so a framework optimized for static pages made more sense than a
-        full React application.
-      </p>
+  <!-- Dark header -->
+  <header class="bg-ink border-b border-rule-dark animate-fade-up">
+    <div class="max-w-7xl mx-auto px-8 py-16 md:py-20">
+      <p class="kicker">Colophon</p>
+      <h1 class="text-text-inv" style="font-size: clamp(2.5rem, 4vw + 1rem, 5rem);">
+        How This Site Is Built
+      </h1>
+    </div>
+  </header>
 
-      <h2>Stack</h2>
+  <!-- Light content -->
+  <section class="bg-bg">
+    <div class="max-w-7xl mx-auto px-8 py-12 md:py-14">
+      <div class="prose animate-fade-up" style="animation-delay: 0.1s;">
 
-      <ul>
-        <li><strong>Framework:</strong> Astro 5.x</li>
-        <li><strong>Styling:</strong> Tailwind CSS 4.x</li>
-        <li><strong>Interactive tools:</strong> React 18 (as separate SPAs via Vercel rewrites)</li>
-        <li><strong>Content:</strong> Astro Content Collections (Markdown)</li>
-        <li><strong>Hosting:</strong> Vercel</li>
-        <li><strong>Domain:</strong> kurtneiswender.com</li>
-      </ul>
+        <p>
+          This site is built with <strong>Astro</strong>&mdash;a static-first
+          framework that ships zero JavaScript by default. The content is mostly
+          prose, so a framework optimized for static pages made more sense than a
+          full React application.
+        </p>
 
-      <h2>Typography</h2>
+        <h2>Stack</h2>
 
-      <ul>
-        <li><strong>Headings:</strong> DM Serif Display &mdash; architectural character with sharp serifs</li>
-        <li><strong>Body:</strong> Inter &mdash; clean readability for long-form prose</li>
-        <li><strong>Code:</strong> JetBrains Mono &mdash; for inline code and labels</li>
-      </ul>
+        <ul>
+          <li><strong>Framework:</strong> Astro 5.x</li>
+          <li><strong>Styling:</strong> Tailwind CSS 4.x</li>
+          <li><strong>Interactive tools:</strong> React 18 (as separate SPAs via Vercel redirects)</li>
+          <li><strong>Content:</strong> Astro Content Collections (Markdown)</li>
+          <li><strong>Hosting:</strong> Vercel</li>
+          <li><strong>Domain:</strong> kurtneiswender.com</li>
+        </ul>
 
-      <h2>Design Principles</h2>
+        <h2>Typography</h2>
 
-      <p>
-        The design follows the same principles I apply to buildings: restraint,
-        proportion, and material honesty. No gradients, no visual noise, no
-        decoration without purpose. The warm white background references good
-        paper. The green accent evokes sustainable practice. The timber tone
-        connects to the mass timber work in the teaching and tools sections.
-      </p>
+        <ul>
+          <li><strong>Display / Headings:</strong> Barlow Condensed &mdash; condensed grotesque with architectural authority</li>
+          <li><strong>Body:</strong> Barlow &mdash; clean, legible, technically precise</li>
+          <li><strong>Labels / Mono:</strong> IBM Plex Mono &mdash; technical annotations and section labels</li>
+        </ul>
 
-      <h2>Tools Integration</h2>
+        <h2>Design Principles</h2>
 
-      <p>
-        The three interactive tools (HVAC Calculator, EchoTrace, Timber
-        Designer) are standalone React applications deployed to their own Vercel
-        projects. They're served under <code>/tools/*</code> via Vercel path
-        rewrites, so they appear seamlessly within the site while maintaining
-        independent deployment cycles.
-      </p>
+        <p>
+          The design follows the same principles I apply to buildings: restraint,
+          proportion, and material honesty. The black-and-white palette with
+          chartreuse accent draws from the language of architectural drawing&mdash;ink
+          on vellum, with a single markup color. No gradients, no rounded cards,
+          no decoration without purpose.
+        </p>
 
-      <h2>Garden</h2>
+        <h2>Tools Integration</h2>
 
-      <p>
-        The digital garden content migrated from GitBook. Articles use a
-        maturity model&mdash;seed, sprout, evergreen&mdash;to signal how
-        developed each piece of thinking is. This is inspired by the digital
-        garden movement and Maggie Appleton&rsquo;s writing on the pattern.
-      </p>
+        <p>
+          The interactive tools (HVAC Calculator, EchoTrace, Timber Designer,
+          Pattern Explorer, Proposal Writer) are standalone React applications
+          deployed to their own Vercel projects. They're served under
+          <code>/tools/*</code> via Vercel path redirects.
+        </p>
+
+        <h2>Garden</h2>
+
+        <p>
+          The digital garden content uses a maturity model&mdash;seed, sprout,
+          evergreen&mdash;to signal how developed each piece of thinking is.
+          Inspired by Maggie Appleton&rsquo;s writing on the digital garden pattern.
+        </p>
+
+      </div>
     </div>
   </section>
+
 </BaseLayout>

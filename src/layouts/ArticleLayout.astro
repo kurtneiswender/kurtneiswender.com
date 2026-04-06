@@ -21,53 +21,85 @@ const formatDate = (date: Date) =>
 ---
 
 <BaseLayout title={title} description={description}>
-  <article class="mx-auto max-w-3xl px-6 py-16 md:py-24">
-    <!-- Header -->
-    <header class="mb-12 animate-fade-up">
-      <div class="flex items-center gap-3 mb-6">
+
+  <!-- Dark article header -->
+  <header class="bg-ink border-b border-rule-dark animate-fade-up">
+    <div class="max-w-7xl mx-auto px-8 py-16 md:py-20">
+      <div class="flex items-center gap-4 mb-6">
         <MaturityBadge maturity={maturity} />
-        <span class="section-label">{formatDate(updated)}</span>
+        <span class="font-mono text-[0.5625rem] tracking-[0.1em] text-[#888]">
+          Updated {formatDate(updated)}
+        </span>
       </div>
 
-      <h1 class="mb-4">{title}</h1>
+      <h1
+        class="font-heading font-bold text-text-inv uppercase leading-tight mb-6"
+        style="font-size: clamp(2rem, 3vw + 0.75rem, 3.5rem);"
+      >
+        {title}
+      </h1>
 
-      <p class="text-lg text-text-secondary leading-relaxed max-w-2xl">
+      <p class="text-[1.0625rem] leading-relaxed text-[#888] max-w-2xl mb-6">
         {description}
       </p>
 
       {tags.length > 0 && (
-        <div class="flex flex-wrap gap-2 mt-6">
+        <div class="flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <span class="text-xs font-mono tracking-wide text-text-secondary bg-surface px-2.5 py-1 rounded">
+            <span class="font-mono text-[0.5rem] tracking-[0.12em] uppercase text-[#888] border border-rule-dark px-[0.65rem] py-[0.25rem]">
               {tag}
             </span>
           ))}
         </div>
       )}
-
-      <hr class="rule mt-8" />
-    </header>
-
-    <!-- Content -->
-    <div class="prose animate-fade-up" style="animation-delay: 0.1s;">
-      <slot />
     </div>
+  </header>
 
-    <!-- Series Navigation -->
-    {series && (
-      <div class="mt-16">
-        <hr class="rule mb-8" />
-        <SeriesNav series={series} currentOrder={seriesOrder} />
-      </div>
-    )}
+  <!-- Light content -->
+  <article class="bg-bg">
+    <div class="max-w-7xl mx-auto px-8 py-14 md:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-[65ch_1fr] gap-16 items-start">
 
-    <!-- Footer meta -->
-    <footer class="mt-16">
-      <hr class="rule mb-6" />
-      <div class="flex items-center justify-between text-xs text-text-secondary">
-        <span>First planted {formatDate(created)}</span>
-        <a href="/garden" class="hover:text-text transition-colors">&larr; Back to garden</a>
+        <!-- Prose -->
+        <div class="prose animate-fade-up" style="animation-delay: 0.1s;">
+          <slot />
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="lg:sticky lg:top-24 space-y-8 animate-fade-up" style="animation-delay: 0.15s;">
+
+          {series && (
+            <div>
+              <SeriesNav series={series} currentOrder={seriesOrder} />
+            </div>
+          )}
+
+          <div class="border border-rule p-5">
+            <p class="font-mono text-[0.5625rem] tracking-[0.16em] uppercase text-accent bg-ink px-2 py-1 inline-block mb-4">
+              Article Info
+            </p>
+            <dl class="space-y-3 text-[0.8125rem]">
+              <div>
+                <dt class="font-mono text-[0.5rem] tracking-[0.12em] uppercase text-text-secondary mb-0.5">Planted</dt>
+                <dd class="text-text">{formatDate(created)}</dd>
+              </div>
+              <div>
+                <dt class="font-mono text-[0.5rem] tracking-[0.12em] uppercase text-text-secondary mb-0.5">Updated</dt>
+                <dd class="text-text">{formatDate(updated)}</dd>
+              </div>
+            </dl>
+          </div>
+
+          <a
+            href="/garden"
+            class="block font-mono text-[0.5625rem] tracking-[0.14em] uppercase text-text-secondary border-b border-rule pb-px hover:text-text hover:border-text transition-colors"
+          >
+            &larr; Back to garden
+          </a>
+        </aside>
+
       </div>
-    </footer>
+    </div>
   </article>
+
 </BaseLayout>
