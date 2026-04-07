@@ -1,5 +1,5 @@
 ---
-title: Archimaration
+title: Archimarathon
 description: 'Kevin Hui''s YouTube channel and Discord community offering beautifully produced architecture education and tours.'
 maturity: sprout
 tags: ['resources', 'community', 'youtube', 'education']
